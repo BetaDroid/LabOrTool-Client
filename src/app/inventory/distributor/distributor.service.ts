@@ -15,32 +15,33 @@ export class DistributorService {
     this.headers = new Headers();
     this.headers.append('Content-Type', 'application/json');
     this.headers.append('Accept', 'application/json');
+    //this.headers.append('Authorization', 'Basic ' + btoa('admin:admin'));
 
     this.options = new RequestOptions({ headers: this.headers });
   }
 
   public GetDistributors = (): Observable<Response> => {
-    return this.http.get(this.URL + '/inventory/distributor')
+    return this.http.get(this.URL + '/distributors/')
       .catch(this.handleError);
   }
 
   public GetDistributor = (id: number): Observable<Response> => {
-    return this.http.get(this.URL + '/inventory/distributor/' + id)
+    return this.http.get(this.URL + '/distributor/' + id)
       .catch(this.handleError);
   }
 
   public PostDistributor = (body): Observable<Response> => {
-    return this.http.post(this.URL + '/inventory/distributor', JSON.stringify(body), this.options)
+    return this.http.post(this.URL + '/distributors/', JSON.stringify(body), this.options)
       .catch(this.handleError);
   }
 
   public PutDistributor = (id: number, body): Observable<Response> => {
-    return this.http.put(this.URL + '/inventory/distributor/' + id, JSON.stringify(body), this.options)
+    return this.http.put(this.URL + '/distributor/' + id, JSON.stringify(body), this.options)
       .catch(this.handleError);
   }
 
   public DeleteDistributor = (id: number): Observable<Response> => {
-    return this.http.delete(this.URL + '/inventory/distributor/' + id)
+    return this.http.delete(this.URL + '/distributor/' + id)
       .catch(this.handleError);
   }
 

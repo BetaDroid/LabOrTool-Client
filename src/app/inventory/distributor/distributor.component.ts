@@ -8,7 +8,9 @@ import { Distributor } from './distributor.model';
   styleUrls: ['./distributor.component.css']
 })
 export class DistributorComponent implements OnInit {
-  private Dis: Distributor;
+  private Distributors: Distributor[] = [
+    { Id: 0, Name: "", Website: "" }
+  ];
 
   constructor(private _DisCalls: DistributorService) { }
 
@@ -17,7 +19,7 @@ export class DistributorComponent implements OnInit {
   }
 
   public getDistributors(): void {
-    this._DisCalls.GetDistributors().subscribe(data => { this.Dis = data.json() });
+    this._DisCalls.GetDistributors().subscribe(data => { this.Distributors = data.json() });
   }
 
 }

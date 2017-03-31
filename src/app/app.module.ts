@@ -13,6 +13,7 @@ import { SearchComponent } from './search/search.component';
 import { PaginationComponent } from './pagination/pagination.component';
 
 import { ConnectionService } from './connection.service';
+import { LoginService } from './login/login.service';
 import { DistributorService } from './inventory/distributor/distributor.service';
 
 @NgModule({
@@ -30,14 +31,13 @@ import { DistributorService } from './inventory/distributor/distributor.service'
     FormsModule,
     HttpModule,
     RouterModule.forRoot([
-      {
-        path: 'inventory/distributors',
-        component: DistributorComponent
-      }
+      { path: 'login', component: LoginComponent },
+      { path: 'inventory/distributors', component: DistributorComponent }
     ])
   ],
   providers: [
     ConnectionService,
+    LoginService,
     DistributorService
   ],
   bootstrap: [AppComponent]
