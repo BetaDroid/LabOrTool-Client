@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
-import { Connection } from '../../connection';
+import { Connection } from '../../connection.model';
 
 @Injectable()
 export class DistributorService {

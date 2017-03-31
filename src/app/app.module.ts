@@ -12,6 +12,8 @@ import { MenuComponent } from './menu/menu.component';
 import { SearchComponent } from './search/search.component';
 import { PaginationComponent } from './pagination/pagination.component';
 
+import { DistributorService } from './inventory/distributor/distributor.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +35,9 @@ import { PaginationComponent } from './pagination/pagination.component';
       }
     ])
   ],
-  providers: [],
+  providers: [
+    DistributorService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
