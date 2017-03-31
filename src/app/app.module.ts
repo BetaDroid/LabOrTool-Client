@@ -9,6 +9,8 @@ import { DistributorComponent } from './inventory/distributor/distributor.compon
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { MenuComponent } from './menu/menu.component';
+import { SearchComponent } from './search/search.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { MenuComponent } from './menu/menu.component';
     DistributorComponent,
     LoginComponent,
     RegistrationComponent,
-    MenuComponent
+    MenuComponent,
+    SearchComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
