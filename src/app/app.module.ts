@@ -12,6 +12,7 @@ import { MenuComponent } from './menu/menu.component';
 import { SearchComponent } from './search/search.component';
 import { PaginationComponent } from './pagination/pagination.component';
 
+import { ConnectionService } from './connection.service';
 import { DistributorService } from './inventory/distributor/distributor.service';
 
 @NgModule({
@@ -36,6 +37,7 @@ import { DistributorService } from './inventory/distributor/distributor.service'
     ])
   ],
   providers: [
+    ConnectionService,
     DistributorService
   ],
   bootstrap: [AppComponent]

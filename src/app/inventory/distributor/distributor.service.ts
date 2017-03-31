@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
-import { Connection } from '../../connection.model';
+import { ConnectionService } from '../../connection.service';
 
 @Injectable()
 export class DistributorService {
@@ -9,7 +9,7 @@ export class DistributorService {
   private headers: Headers;
   private options: RequestOptions;
 
-  constructor(private http: Http, private host: Connection) {
+  constructor(private http: Http, private host: ConnectionService) {
     this.URL = host.LabOrTool;
 
     this.headers = new Headers();
