@@ -16,6 +16,7 @@ import { ConnectionService } from './connection.service';
 import { LoginService } from './login/login.service';
 import { DistributorService } from './inventory/distributor/distributor.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MenuComponent,
     SearchComponent,
     PaginationComponent,
-    DashboardComponent
+    DashboardComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
