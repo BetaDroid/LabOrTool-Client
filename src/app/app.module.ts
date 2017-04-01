@@ -36,6 +36,9 @@ import { LogoutComponent } from './logout/logout.component';
     HttpModule,
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent },
+      { path: 'logout', component: LogoutComponent },
+      { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+      { path: 'dashboard', component: DashboardComponent },
       { path: 'inventory/distributors', component: DistributorComponent }
     ])
   ],
