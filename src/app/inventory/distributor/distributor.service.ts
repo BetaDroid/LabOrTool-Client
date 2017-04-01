@@ -23,31 +23,30 @@ export class DistributorService {
   public GetDistributors = (): Observable<Response> => {
     return this.http.get(this.URL + 'api/v1/distributors/')
       .catch(this.handleError);
-  }
+  };
 
   public GetDistributor = (id: number): Observable<Response> => {
     return this.http.get(this.URL + 'api/v1/distributor/' + id)
       .catch(this.handleError);
-  }
+  };
 
   public PostDistributor = (body): Observable<Response> => {
     return this.http.post(this.URL + 'api/v1/distributors/', JSON.stringify(body), this.options)
       .catch(this.handleError);
-  }
+  };
 
   public PutDistributor = (id: number, body): Observable<Response> => {
     return this.http.put(this.URL + 'api/v1/distributor/' + id, JSON.stringify(body), this.options)
       .catch(this.handleError);
-  }
+  };
 
   public DeleteDistributor = (id: number): Observable<Response> => {
     return this.http.delete(this.URL + 'api/v1/distributor/' + id)
       .catch(this.handleError);
-  }
+  };
 
   private handleError(error: Response) {
     console.error(error);
     return Observable.throw(error.json().error || 'Server error');
   }
-
 }

@@ -8,9 +8,9 @@ import { LoginService } from '../login/login.service';
 })
 export class LogoutComponent implements OnInit {
 
-  constructor(private _LoginS: LoginService) { }
+  constructor(private _LoginSer: LoginService) { }
 
   ngOnInit() {
-    this._LoginS.make_logout();
+    this._LoginSer.MakeLogout();
   }
 }
