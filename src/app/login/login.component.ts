@@ -15,5 +15,6 @@ export class LoginComponent implements OnInit {
 
   onSubmit(_Form: any): void {
     this._Login.make_login(_Form.Username, _Form.Password);
+
   }
 }
