@@ -21,27 +21,27 @@ export class DistributorService {
   }
 
   public GetDistributors = (): Observable<Response> => {
-    return this.http.get(this.URL + '/distributors/')
+    return this.http.get(this.URL + 'api/v1/distributors/')
       .catch(this.handleError);
   }
 
   public GetDistributor = (id: number): Observable<Response> => {
-    return this.http.get(this.URL + '/distributor/' + id)
+    return this.http.get(this.URL + 'api/v1/distributor/' + id)
       .catch(this.handleError);
   }
 
   public PostDistributor = (body): Observable<Response> => {
-    return this.http.post(this.URL + '/distributors/', JSON.stringify(body), this.options)
+    return this.http.post(this.URL + 'api/v1/distributors/', JSON.stringify(body), this.options)
       .catch(this.handleError);
   }
 
   public PutDistributor = (id: number, body): Observable<Response> => {
-    return this.http.put(this.URL + '/distributor/' + id, JSON.stringify(body), this.options)
+    return this.http.put(this.URL + 'api/v1/distributor/' + id, JSON.stringify(body), this.options)
       .catch(this.handleError);
   }
 
   public DeleteDistributor = (id: number): Observable<Response> => {
-    return this.http.delete(this.URL + '/distributor/' + id)
+    return this.http.delete(this.URL + 'api/v1/distributor/' + id)
       .catch(this.handleError);
   }
 
