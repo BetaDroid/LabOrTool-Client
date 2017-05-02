@@ -13,10 +13,6 @@ export class DistributorComponent implements OnInit {
   constructor(private _disCalls: DistributorService) { }
 
   ngOnInit() {
-    this.GetDistributors();
-  }
-
-  public GetDistributors(): void {
     this._disCalls.getDistributors().subscribe(data => { this.Distributors = data.json() });
   }
 

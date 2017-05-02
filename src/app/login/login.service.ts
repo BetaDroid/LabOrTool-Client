@@ -1,50 +1,27 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
+import 'rxjs/add/operator/map'
 import { ConnectionService } from '../connection.service';
+import { User } from '../user/user.model';
 
 @Injectable()
 export class LoginService {
-  private URL: string;
-  protected loggedIn = false;
-  private options: RequestOptions;
 
-  constructor(private _http: Http, private _Host: ConnectionService) {
-    this.URL = _Host.LabOrTool;
-    this.loggedIn = !!localStorage.getItem('auth_token');
+  public token: string;
+
+  constructor(private _http: Http, private _host: ConnectionService) {
   }
 
-  public GetAuthToken(_Username: string, _Password: string): any {
+  public login = (username: string, password: string): Observable<Response> => {
     let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', 'Basic ' + btoa(_Username + ':' + _Password));
-    this.options = new RequestOptions({ headers: headers });
+    headers.append('Authorization', "Basic " + btoa(username + ":" + password));
+    return this._http.get(this._host.LabOrTool + '/get-auth-token', {headers: headers});
+  };
 
-
-    return this._http.get(this.URL + "/get-auth-token", this.options)
-      .catch(this.handleError);
-  }
-
-  private handleError(error: Response) {
-    console.error(error);
-    return Observable.throw(error.json().error || 'Server error');
-  }
-
-  public MakeLogin(data: any): boolean {
-    if (data.Token) {
-      localStorage.setItem('auth_token', data.Token);
-      this.loggedIn = true;
-      return true;
-    } else
-      return false;
-  }
-
-  public MakeLogout(): void {
-    localStorage.removeItem('auth_token');
-    this.loggedIn = false;
-  }
-
-  public CheckLogin(): any {
-    return this.loggedIn;
+  logout(): void {
+    // clear token remove user from local storage to log user out
+    this.token = null;
+    localStorage.removeItem('currentUser');
   }
 }

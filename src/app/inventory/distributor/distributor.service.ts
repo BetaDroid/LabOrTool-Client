@@ -23,7 +23,7 @@ export class DistributorService {
   };
 
   public getDistributor = (id: number): Observable<Response> => {
-    return this._http.get(this._host.LabOrTool + '/inventory/distributor/' + id)
+    return this._http.get(this._host.LabOrTool + '/inventory/distributors/' + id)
       .catch(this.handleError);
   };
 
@@ -33,12 +33,12 @@ export class DistributorService {
   };
 
   public putDistributor = (id: number, body): Observable<Response> => {
-    return this._http.put(this._host.LabOrTool + '/inventory/distributor/' + id, JSON.stringify(body), this.options)
+    return this._http.put(this._host.LabOrTool + '/inventory/distributors/' + id, JSON.stringify(body), this.options)
       .catch(this.handleError);
   };
 
   public deleteDistributor = (id: number): Observable<Response> => {
-    return this._http.delete(this._host.LabOrTool + '/inventory/distributor/' + id)
+    return this._http.delete(this._host.LabOrTool + '/inventory/distributors/' + id)
       .catch(this.handleError);
   };
 

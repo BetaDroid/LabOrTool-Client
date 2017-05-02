@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from './login.service';
-import { Router } from "@angular/router";
-import { UnauthorizedError } from '../error/error.model';
+import { Router } from '@angular/router';
+import { User } from '../user/user.model';
 
 @Component({
   selector: 'app-login',
@@ -9,22 +9,19 @@ import { UnauthorizedError } from '../error/error.model';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  private Unauthorized: UnauthorizedError = {
-    Error: "Unauthorized", Message: "Please authenticate", Status: "401"
-  };
-  protected data;
+  model: any = {};
+  loading = false;
+  error = '';
 
   constructor(private _loginSer: LoginService, private _router: Router) {
   }
 
   ngOnInit() {
+    //this._loginSer.logout();
   }
 
-  onSubmit(_form: any): void {
-    this._loginSer.GetAuthToken(_form.Username, _form.Password).subscribe((res: Response) => {
-      if (this._loginSer.MakeLogin(res.json())) {
-        this._router.navigate(['/dashboard']);
-      }
-    });
+  login() {
+    this._loginSer.login('admin', 'admin').subscribe(data => { this.model = data.json() });
+    console.log(this.model);
   }
 }
