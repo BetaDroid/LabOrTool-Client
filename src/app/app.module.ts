@@ -21,6 +21,8 @@ import { DistributorService } from './inventory/distributor/distributor.service'
 import { AlertService } from './alert/alert.service';
 import { UserComponent } from './user/user.component';
 import { ViewComponent } from './inventory/distributor/view/view.component';
+import { ManufacturerComponent } from './inventory/manufacturer/manufacturer.component';
+import {ManufacturerService} from "./inventory/manufacturer/manufacturer.service";
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { ViewComponent } from './inventory/distributor/view/view.component';
     LogoutComponent,
     AlertComponent,
     UserComponent,
-    ViewComponent
+    ViewComponent,
+    ManufacturerComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +50,7 @@ import { ViewComponent } from './inventory/distributor/view/view.component';
       { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'inventory/distributors', component: DistributorComponent },
+      { path: 'inventory/manufacturers', component: ManufacturerComponent },
       { path: 'users', component: UserComponent }
     ])
   ],
@@ -54,7 +58,8 @@ import { ViewComponent } from './inventory/distributor/view/view.component';
     ConnectionService,
     LoginService,
     AlertService,
-    DistributorService
+    DistributorService,
+    ManufacturerService
   ],
   bootstrap: [AppComponent]
 })
