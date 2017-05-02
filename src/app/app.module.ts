@@ -11,12 +11,16 @@ import { RegistrationComponent } from './registration/registration.component';
 import { MenuComponent } from './menu/menu.component';
 import { SearchComponent } from './search/search.component';
 import { PaginationComponent } from './pagination/pagination.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { LogoutComponent } from './logout/logout.component';
+import { AlertComponent } from './alert/alert.component';
 
 import { ConnectionService } from './connection.service';
 import { LoginService } from './login/login.service';
 import { DistributorService } from './inventory/distributor/distributor.service';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { LogoutComponent } from './logout/logout.component';
+import { AlertService } from './alert/alert.service';
+import { UserComponent } from './user/user.component';
+import { ViewComponent } from './inventory/distributor/view/view.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,10 @@ import { LogoutComponent } from './logout/logout.component';
     SearchComponent,
     PaginationComponent,
     DashboardComponent,
-    LogoutComponent
+    LogoutComponent,
+    AlertComponent,
+    UserComponent,
+    ViewComponent
   ],
   imports: [
     BrowserModule,
@@ -39,12 +46,14 @@ import { LogoutComponent } from './logout/logout.component';
       { path: 'logout', component: LogoutComponent },
       { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
-      { path: 'inventory/distributors', component: DistributorComponent }
+      { path: 'inventory/distributors', component: DistributorComponent },
+      { path: 'users', component: UserComponent }
     ])
   ],
   providers: [
     ConnectionService,
     LoginService,
+    AlertService,
     DistributorService
   ],
   bootstrap: [AppComponent]

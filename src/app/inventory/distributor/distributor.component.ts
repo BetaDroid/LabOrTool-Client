@@ -8,18 +8,16 @@ import { Distributor } from './distributor.model';
   styleUrls: ['./distributor.component.css']
 })
 export class DistributorComponent implements OnInit {
-  private Distributors: Distributor[] = [
-    { Id: 0, Name: "", Website: "" }
-  ];
+  private Distributors: Distributor[] = [];
 
-  constructor(private _DisCalls: DistributorService) { }
+  constructor(private _disCalls: DistributorService) { }
 
   ngOnInit() {
-    this.getDistributors();
+    this.GetDistributors();
   }
 
-  public getDistributors(): void {
-    this._DisCalls.GetDistributors().subscribe(data => { this.Distributors = data.json() });
+  public GetDistributors(): void {
+    this._disCalls.getDistributors().subscribe(data => { this.Distributors = data.json() });
   }
 
 }
