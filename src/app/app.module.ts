@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule }   from '@angular/router';
 
@@ -20,7 +20,6 @@ import { LoginService } from './login/login.service';
 import { DistributorService } from './inventory/distributor/distributor.service';
 import { AlertService } from './alert/alert.service';
 import { UserComponent } from './user/user.component';
-import { ViewComponent } from './inventory/distributor/view/view.component';
 import { ManufacturerComponent } from './inventory/manufacturer/manufacturer.component';
 import {ManufacturerService} from "./inventory/manufacturer/manufacturer.service";
 import { LocationComponent } from './inventory/location/location.component';
@@ -29,6 +28,8 @@ import { CategoryComponent } from './inventory/category/category.component';
 import { ComponentComponent } from './inventory/component/component.component';
 import { CategoryParamTypeComponent } from './inventory/category-param-type/category-param-type.component';
 import { ComponentParamComponent } from './inventory/component-param/component-param.component';
+import { ViewDistributorComponent } from './inventory/distributor/view-distributor/view-distributor.component';
+import { AddDistributorComponent } from './inventory/distributor/add-distributor/add-distributor.component';
 
 @NgModule({
   declarations: [
@@ -43,18 +44,20 @@ import { ComponentParamComponent } from './inventory/component-param/component-p
     LogoutComponent,
     AlertComponent,
     UserComponent,
-    ViewComponent,
     ManufacturerComponent,
     LocationComponent,
     FootprintComponent,
     CategoryComponent,
     ComponentComponent,
     CategoryParamTypeComponent,
-    ComponentParamComponent
+    ComponentParamComponent,
+    ViewDistributorComponent,
+    AddDistributorComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent },
@@ -62,6 +65,8 @@ import { ComponentParamComponent } from './inventory/component-param/component-p
       { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'inventory/distributors', component: DistributorComponent },
+      { path: 'inventory/distributors/add', component: AddDistributorComponent },
+      { path: 'inventory/distributors/view/:id', component: ViewDistributorComponent },
       { path: 'inventory/manufacturers', component: ManufacturerComponent },
       { path: 'users', component: UserComponent }
     ])

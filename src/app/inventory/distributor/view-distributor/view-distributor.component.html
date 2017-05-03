@@ -1,0 +1,46 @@
+<app-menu></app-menu>
+
+<div class="uk-container uk-margin">
+  <div class="uk-padding uk-box-shadow-small">
+    <form [formGroup]="disForm">
+      <fieldset class="uk-fieldset">
+
+        <legend class="uk-legend">View distributor</legend>
+
+        <div class="uk-margin">
+          <label class="uk-form-label" for="id">Id</label>
+          <div class="uk-form-controls">
+            <input class="uk-input" id="id" type="text" name="id" [formControl]="disForm.controls['id']">
+          </div>
+        </div>
+
+        <div class="uk-margin">
+          <label class="uk-form-label" for="name">Name</label>
+          <div class="uk-form-controls">
+            <input class="uk-input" id="name" type="text" [formControl]="disForm.controls['name']">
+          </div>
+        </div>
+
+        <div class="uk-margin">
+          <label class="uk-form-label" for="website">Website</label>
+          <div class="uk-form-controls">
+            <input class="uk-input" id="website" type="text" [formControl]="disForm.controls['website']">
+          </div>
+        </div>
+
+        <div *ngIf="!editable" class="uk-margin">
+          <a routerLink="/inventory/distributors" class="uk-float-left uk-icon-button" uk-icon="icon: arrow-left" title="Back" uk-tooltip></a>
+          <a (click)="EnableEdit()" class="uk-float-right uk-icon-button" uk-icon="icon: file-edit" title="Edit" uk-tooltip></a>
+          <a class="uk-float-right uk-icon-button uk-margin-small-right" uk-icon="icon: trash" title="Delete" uk-tooltip></a>
+        </div>
+
+        <div *ngIf="editable" class="uk-margin">
+          <a (click)="DisableEdit()" class="uk-float-left uk-icon-button" uk-icon="icon: close" title="Cancel" uk-tooltip></a>
+          <a (click)="onSubmit(disForm.value)" class="uk-float-right uk-icon-button" uk-icon="icon: check" title="Save" uk-tooltip></a>
+        </div>
+
+      </fieldset>
+    </form>
+  </div>
+</div>
+

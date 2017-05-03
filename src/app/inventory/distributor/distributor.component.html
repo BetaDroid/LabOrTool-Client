@@ -8,6 +8,13 @@
 
   <div class="uk-overflow-auto uk-margin uk-box-shadow-small">
     <table class="uk-table uk-table-hover uk-table-middle">
+      <caption class="uk-margin-small-top">
+        <div class="uk-text-center">
+          <h1>Distributors</h1>
+          <a routerLink="/inventory/distributors/add" class="uk-icon-button uk-margin-small-right" uk-icon="icon: plus" title="Add" uk-tooltip></a>
+          <a href="#" class="uk-icon-button" uk-icon="icon: trash" title="Remove" uk-tooltip></a>
+        </div>
+      </caption>
       <thead>
         <tr>
           <th class="uk-table-shrink"></th>
@@ -24,8 +31,8 @@
             <a class="uk-link-reset" href="{{Dis.Website}}">{{Dis.Website}}</a>
           </td>
           <td class="uk-text-nowrap">
-            <a routerLink="/inventory/distributors/view/{{Dis.Id}}" class="uk-icon-link uk-margin-small-right" uk-icon="icon: file-edit" title="Edit" uk-tooltip></a>
-            <a routerLink="/inventory/distributors/view/{{Dis.Id}}" class="uk-icon-link" uk-icon="icon: file" title="View" uk-tooltip></a>
+            <!-- <a routerLink="/inventory/distributors/edit/{{Dis.Id}}" class="uk-icon-button uk-margin-small-right" uk-icon="icon: file-edit" title="Edit" uk-tooltip></a> -->
+            <a routerLink="/inventory/distributors/view/{{Dis.Id}}" class="uk-icon-button" uk-icon="icon: file" title="View" uk-tooltip></a>
           </td>
         </tr>
       </tbody>
