@@ -23,6 +23,12 @@ import { UserComponent } from './user/user.component';
 import { ViewComponent } from './inventory/distributor/view/view.component';
 import { ManufacturerComponent } from './inventory/manufacturer/manufacturer.component';
 import {ManufacturerService} from "./inventory/manufacturer/manufacturer.service";
+import { LocationComponent } from './inventory/location/location.component';
+import { FootprintComponent } from './inventory/footprint/footprint.component';
+import { CategoryComponent } from './inventory/category/category.component';
+import { ComponentComponent } from './inventory/component/component.component';
+import { CategoryParamTypeComponent } from './inventory/category-param-type/category-param-type.component';
+import { ComponentParamComponent } from './inventory/component-param/component-param.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +44,13 @@ import {ManufacturerService} from "./inventory/manufacturer/manufacturer.service
     AlertComponent,
     UserComponent,
     ViewComponent,
-    ManufacturerComponent
+    ManufacturerComponent,
+    LocationComponent,
+    FootprintComponent,
+    CategoryComponent,
+    ComponentComponent,
+    CategoryParamTypeComponent,
+    ComponentParamComponent
   ],
   imports: [
     BrowserModule,

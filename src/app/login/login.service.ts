@@ -16,7 +16,7 @@ export class LoginService {
   public login = (username: string, password: string): Observable<Response> => {
     let headers = new Headers();
     headers.append('Authorization', "Basic " + btoa(username + ":" + password));
-    return this._http.get(this._host.LabOrTool + '/get-auth-token', {headers: headers});
+    return this._http.get('http://127.0.0.1:5000/get-auth-token', {headers: headers});
   };
 
   logout(): void {

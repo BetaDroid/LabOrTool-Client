@@ -17,7 +17,8 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this._loginSer.logout();
+    this._loginSer.login('admin', 'admin').subscribe(data => {this.model = data.json()});
+    console.log(this.model);
   }
 
   login() {
