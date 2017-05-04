@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from './login.service';
 import { Router } from '@angular/router';
-import { User } from '../user/user.model';
 
 @Component({
   selector: 'app-login',
@@ -9,16 +8,11 @@ import { User } from '../user/user.model';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  model: any = {};
-  loading = false;
-  error = '';
 
   constructor(private _loginSer: LoginService, private _router: Router) {
   }
 
   ngOnInit() {
-    //this._loginSer.login('admin', 'admin').subscribe(data => {this.model = data.json()});
-    //console.log(this.model);
   }
 
   private onSubmit(_formData: any) {
@@ -37,7 +31,12 @@ export class LoginComponent implements OnInit {
       document.getElementById('password').className = "uk-input";
 
     if (!error) {
-      console.log(_formData);
+      if (this._loginSer.makeLogin(_formData.username, _formData.password))
+        this._router.navigate(['/dashboard']);
+      else {
+        console.log('error');
+        // TODO: error message
+      }
     }
   }
 }

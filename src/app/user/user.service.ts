@@ -17,7 +17,7 @@ export class UserService {
 
   getUsers(): Observable<User[]> {
     // add authorization header with jwt token
-    let headers = new Headers({ 'Authorization': 'Bearer ' + this._logSer.token });
+    let headers = new Headers({ 'Authorization': 'Bearer ' + ''});
     let options = new RequestOptions({ headers: headers });
 
     // get users from api

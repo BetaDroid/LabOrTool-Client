@@ -1,26 +1,32 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response, RequestOptions } from '@angular/http';
-import { Observable } from 'rxjs/Rx';
-import 'rxjs/add/operator/map'
+import { Http, Headers } from '@angular/http';
 import { ConnectionService } from '../connection.service';
-import { User } from '../user/user.model';
 
 @Injectable()
 export class LoginService {
-
   public token: string;
 
   constructor(private _http: Http, private _host: ConnectionService) {
+    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.token = currentUser && currentUser.Token;
   }
 
-  public login = (username: string, password: string): Observable<Response> => {
-    let headers = new Headers();
+  public makeLogin(username: string, password: string) {
+    let headers = new Headers(), error = false;
     headers.append('Authorization', "Basic " + btoa(username + ":" + password));
-    return this._http.get('http://127.0.0.1:5000/get-auth-token', {headers: headers});
+    this._http.get(this._host.LabOrTool + "/get-auth-token", { headers: headers }).subscribe(data => {
+      let response = data.json();
+      if (response.Token && response.Token !== "") {
+        this.token = response.Token;
+        localStorage.setItem('currentUser', JSON.stringify({ Username: username, Token: response.Token }));
+      } else
+        error = true;
+    });
+
+    return (!error);
   };
 
-  logout(): void {
-    // clear token remove user from local storage to log user out
+  public makeLogout(): void {
     this.token = null;
     localStorage.removeItem('currentUser');
   }
