@@ -7,12 +7,9 @@ export class LoginGuard implements CanActivate {
   constructor(private _router: Router) {}
 
   canActivate() {
-    if (localStorage.getItem('currentUser')) {
-      // logged in so return true
+    if (localStorage.getItem('currentUser'))
       return true;
-    }
 
-    // not logged in so redirect to login page
     this._router.navigate(['/login']);
     return false;
   }

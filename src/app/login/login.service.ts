@@ -6,15 +6,15 @@ import { ConnectionService } from '../connection.service';
 export class LoginService {
   public token: string;
 
-  constructor(private _http: Http, private _host: ConnectionService) {
+  constructor(private _http: Http) {
     let currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.token = currentUser && currentUser.Token;
   }
 
-  public makeLogin(username: string, password: string) {
+  public makeLogin(username: string, password: string): boolean {
     let headers = new Headers(), error = false;
     headers.append('Authorization', "Basic " + btoa(username + ":" + password));
-    this._http.get(this._host.LabOrTool + "/get-auth-token", { headers: headers }).subscribe(data => {
+    this._http.get('http://127.0.0.1:5000/get-auth-token', { headers: headers }).subscribe(data => {
       let response = data.json();
       if (response.Token && response.Token !== "") {
         this.token = response.Token;
