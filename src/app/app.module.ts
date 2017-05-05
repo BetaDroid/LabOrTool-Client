@@ -9,7 +9,6 @@ import { DistributorComponent } from './inventory/distributor/distributor.compon
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { MenuComponent } from './menu/menu.component';
-import { SearchComponent } from './search/search.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LogoutComponent } from './logout/logout.component';
@@ -38,7 +37,6 @@ import { AddDistributorComponent } from './inventory/distributor/add-distributor
     LoginComponent,
     RegistrationComponent,
     MenuComponent,
-    SearchComponent,
     PaginationComponent,
     DashboardComponent,
     LogoutComponent,

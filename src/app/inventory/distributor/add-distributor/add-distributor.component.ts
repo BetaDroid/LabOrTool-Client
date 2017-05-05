@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {DistributorService} from "../distributor.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-add-distributor',
@@ -7,28 +9,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddDistributorComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _disSer: DistributorService,
+    private _router: Router
+  ) { }
 
   ngOnInit() {
   }
 
-  private onSubmit(form: any) {
+  onSubmit(_formData: any) {
     let error = false;
 
-    if (form.name === "") {
+    if (_formData.Name === "") {
       document.getElementById('name').className += " uk-form-danger";
       error = true;
     } else
       document.getElementById('name').className = "uk-input";
 
-    if (form.website === "") {
+    if (_formData.Website === "") {
       document.getElementById('website').className += " uk-form-danger";
       error = true;
     } else
       document.getElementById('website').className = "uk-input";
 
-    console.log(form);
-    // TODO: post call
+    if (!error)
+      this._disSer.PostDistributor(_formData).subscribe(
+        () => {  }, // TODO: check if the response is true
+        () => {},
+        () => { this._router.navigate(['/inventory/distributors']); }
+      );
+
   }
 
 }

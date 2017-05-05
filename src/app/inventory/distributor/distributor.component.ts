@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DistributorService } from './distributor.service';
-import { Distributor } from './distributor.model';
-import {LoginService} from "../../login/login.service";
 
 @Component({
   selector: 'app-distributor',
@@ -9,26 +7,30 @@ import {LoginService} from "../../login/login.service";
   styleUrls: ['./distributor.component.css']
 })
 export class DistributorComponent implements OnInit {
-  private Distributors: Distributor[] = [];
+  Distributors = [];
 
-  constructor(private _disSer: DistributorService, private login: LoginService) { }
+  constructor(private _disSer: DistributorService) { }
 
   ngOnInit() {
-    this._disSer.getDistributors().subscribe(data => { this.Distributors = data.json() });
+    this._disSer.GetDistributors().subscribe(data => { this.Distributors = data.json() });
   }
 
   deleteDistributor(_id: number) {
-    this._disSer.deleteDistributor(_id);
+    this._disSer.DeleteDistributor(_id).subscribe(
+      () => {}, // TODO: check the response
+      () => {},
+      () => { this._disSer.GetDistributors().subscribe(data => { this.Distributors = data.json() }); }
+    );
   }
 
   onKey(event: KeyboardEvent) {
     if ((<HTMLInputElement>event.target).value !== '')
-      this._disSer.searchDistributor((<HTMLInputElement>event.target).value).subscribe(
+      this._disSer.SearchDistributor((<HTMLInputElement>event.target).value).subscribe(
         data => {
           this.Distributors = data.json();
         }
       );
     else
-      this._disSer.getDistributors().subscribe(data => { this.Distributors = data.json() });
+      this._disSer.GetDistributors().subscribe(data => { this.Distributors = data.json() });
   }
 }

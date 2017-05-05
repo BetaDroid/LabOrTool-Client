@@ -10,28 +10,28 @@
         <div class="uk-margin">
           <label class="uk-form-label" for="id">Id</label>
           <div class="uk-form-controls">
-            <input class="uk-input" id="id" type="text" name="id" [formControl]="disForm.controls['id']">
+            <input class="uk-input" id="id" type="text" [formControl]="disForm.controls['Id']">
           </div>
         </div>
 
         <div class="uk-margin">
           <label class="uk-form-label" for="name">Name</label>
           <div class="uk-form-controls">
-            <input class="uk-input" id="name" type="text" [formControl]="disForm.controls['name']">
+            <input class="uk-input" id="name" type="text" [formControl]="disForm.controls['Name']">
           </div>
         </div>
 
         <div class="uk-margin">
           <label class="uk-form-label" for="website">Website</label>
           <div class="uk-form-controls">
-            <input class="uk-input" id="website" type="text" [formControl]="disForm.controls['website']">
+            <input class="uk-input" id="website" type="text" [formControl]="disForm.controls['Website']">
           </div>
         </div>
 
         <div *ngIf="!editable" class="uk-margin">
           <a routerLink="/inventory/distributors" class="uk-float-left uk-icon-button" uk-icon="icon: arrow-left" title="Back" uk-tooltip></a>
           <a (click)="EnableEdit()" class="uk-float-right uk-icon-button" uk-icon="icon: file-edit" title="Edit" uk-tooltip></a>
-          <a class="uk-float-right uk-icon-button uk-margin-small-right" uk-icon="icon: trash" title="Delete" uk-tooltip></a>
+          <a (click)="deleteDistributor(disForm.value.Id)" class="uk-float-right uk-icon-button uk-margin-small-right" uk-icon="icon: trash" title="Delete" uk-tooltip></a>
         </div>
 
         <div *ngIf="editable" class="uk-margin">

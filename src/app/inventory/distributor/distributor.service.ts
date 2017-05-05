@@ -20,33 +20,33 @@ export class DistributorService {
     this.options = new RequestOptions({ headers: this.headers });
   }
 
-  public getDistributors = (): Observable<Response> => {
-    return this._http.get(this._host.LabOrTool + '/inventory/distributors/')
+  public GetDistributors = (): Observable<Response> => {
+    return this._http.get(this._host.LabOrTool + '/inventory/distributors/', this.options)
       .catch(this.handleError);
   };
 
-  public getDistributor = (_id: number): Observable<Response> => {
-    return this._http.get(this._host.LabOrTool + '/inventory/distributors/' + _id, { headers: this.headers })
+  public GetDistributor = (_id: number): Observable<Response> => {
+    return this._http.get(this._host.LabOrTool + '/inventory/distributors/' + _id, this.options)
       .catch(this.handleError);
   };
 
-  public postDistributor = (_body): Observable<Response> => {
-    return this._http.post(this._host.LabOrTool + '/inventory/distributors/', JSON.stringify(_body), { headers: this.headers })
+  public PostDistributor = (_body): Observable<Response> => {
+    return this._http.post(this._host.LabOrTool + '/inventory/distributors/', JSON.stringify(_body), this.options)
       .catch(this.handleError);
   };
 
-  public putDistributor = (_id: number, _body): Observable<Response> => {
-    return this._http.put(this._host.LabOrTool + '/inventory/distributors/' + _id, JSON.stringify(_body), { headers: this.headers })
+  public PutDistributor = (_id: number, _body): Observable<Response> => {
+    return this._http.put(this._host.LabOrTool + '/inventory/distributors/' + _id, JSON.stringify(_body), this.options)
       .catch(this.handleError);
   };
 
-  public deleteDistributor = (_id: number): Observable<Response> => {
-    return this._http.delete(this._host.LabOrTool + '/inventory/distributors/' + _id, { headers: this.headers })
+  public DeleteDistributor = (_id: number): Observable<Response> => {
+    return this._http.delete(this._host.LabOrTool + '/inventory/distributors/' + _id, this.options)
       .catch(this.handleError);
   };
 
-  public searchDistributor = (_text: string): Observable<Response> => {
-    return this._http.get(this._host.LabOrTool + '/inventory/distributors/search/' + _text)
+  public SearchDistributor = (_text: string): Observable<Response> => {
+    return this._http.get(this._host.LabOrTool + '/inventory/distributors/search/' + _text, this.options)
       .catch(this.handleError);
   };
 

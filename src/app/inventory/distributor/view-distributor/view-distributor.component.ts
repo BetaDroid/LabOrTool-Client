@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
+import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
+import {ActivatedRoute, Router} from "@angular/router";
+import {DistributorService} from "../distributor.service";
 
 @Component({
   selector: 'app-view-distributor',
@@ -9,39 +11,82 @@ import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 export class ViewDistributorComponent implements OnInit {
   disForm: FormGroup;
   private editable: boolean = false;
+  id;
 
-  constructor(private _formBuilder: FormBuilder) {
-    // TODO: get call
+  constructor(
+    private _formBuilder: FormBuilder,
+    private _route: ActivatedRoute,
+    private _router: Router,
+    private _disSer: DistributorService
+  ) {
     this.disForm = _formBuilder.group({
-      'id': new FormControl({value: '1', disabled: true}),
-      'name': new FormControl({value: '2', disabled: true}),
-      'website': new FormControl({value: '3', disabled: true})
+      'Id': new FormControl({value: '', disabled: true}),
+      'Name': new FormControl({value: '', disabled: true}),
+      'Website': new FormControl({value: '', disabled: true})
+    });
+    _route.params.subscribe(params => {
+      this.id = +params['id'];
     });
   }
 
   ngOnInit() {
-
+    this.getDistributor();
   }
 
-  private onSubmit(_values: any) {
-    // TODO: form validation
-    console.log(_values);
-    // TODO: put call
-    this.DisableEdit();
+  onSubmit(_formData: any) {
+    let error = false;
+
+    if (_formData.Name === "") {
+      document.getElementById('name').className += " uk-form-danger";
+      error = true;
+    } else
+      document.getElementById('name').className = "uk-input";
+
+    if (_formData.Website === "") {
+      document.getElementById('website').className += " uk-form-danger";
+      error = true;
+    } else
+      document.getElementById('website').className = "uk-input";
+
+    if (!error) {
+      this._disSer.PutDistributor(this.id, _formData).subscribe(
+        () => {  }, // TODO: check if the response is true
+        () => {},
+        () => {
+          this.DisableEdit();
+          this.getDistributor();
+        }
+      );
+    }
   }
 
-  private EnableEdit() {
+  deleteDistributor(_id: number) {
+    this._disSer.DeleteDistributor(_id).subscribe(
+      () => {}, // TODO: check the response
+      () => {},
+      () => { this._router.navigate(['/inventory/distributors']); }
+    );
+  }
+
+  EnableEdit() {
     document.getElementById('name').removeAttribute('disabled');
     document.getElementById('website').removeAttribute('disabled');
     this.editable = true;
   }
 
-  private DisableEdit() {
+  DisableEdit() {
     document.getElementById('name').setAttribute('disabled', 'true');
     document.getElementById('website').setAttribute('disabled', 'true');
     this.editable = false;
   }
 
-  // TODO: delete call
-
+  private getDistributor() {
+    this._disSer.GetDistributor(this.id).subscribe(data => {
+      this.disForm = this._formBuilder.group({
+        'Id': new FormControl({value: data.json().Id, disabled: true}),
+        'Name': new FormControl({value: data.json().Name, disabled: true}),
+        'Website': new FormControl({value: data.json().Website, disabled: true})
+      });
+    });
+  }
 }
