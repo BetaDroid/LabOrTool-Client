@@ -34,6 +34,9 @@ import { ViewManufacturerComponent } from './inventory/manufacturer/view-manufac
 import { AddLocationComponent } from './inventory/location/add-location/add-location.component';
 import { ViewLocationComponent } from './inventory/location/view-location/view-location.component';
 import {LocationService} from "./inventory/location/location.service";
+import {FootprintService} from "./inventory/footprint/footprint.service";
+import { AddFootprintComponent } from './inventory/footprint/add-footprint/add-footprint.component';
+import { ViewFootprintComponent } from './inventory/footprint/view-footprint/view-footprint.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +63,8 @@ import {LocationService} from "./inventory/location/location.service";
     ViewManufacturerComponent,
     AddLocationComponent,
     ViewLocationComponent,
+    AddFootprintComponent,
+    ViewFootprintComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,6 +85,9 @@ import {LocationService} from "./inventory/location/location.service";
       { path: 'inventory/locations', component: LocationComponent },
       { path: 'inventory/locations/add', component: AddLocationComponent },
       { path: 'inventory/locations/view/:id', component: ViewLocationComponent },
+      { path: 'inventory/footprints', component: FootprintComponent },
+      { path: 'inventory/footprints/add', component: AddFootprintComponent },
+      { path: 'inventory/footprints/view/:id', component: ViewFootprintComponent },
       { path: 'users', component: UserComponent }
     ])
   ],
@@ -89,7 +97,8 @@ import {LocationService} from "./inventory/location/location.service";
     AlertService,
     DistributorService,
     ManufacturerService,
-    LocationService
+    LocationService,
+    FootprintService
   ],
   bootstrap: [AppComponent]
 })

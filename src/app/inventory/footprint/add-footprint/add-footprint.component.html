@@ -1,0 +1,32 @@
+<app-menu></app-menu>
+
+<div class="uk-container uk-margin">
+  <div class="uk-padding uk-box-shadow-small">
+    <form #fooForm="ngForm">
+      <fieldset class="uk-fieldset">
+
+        <legend class="uk-legend">Add new footprint</legend>
+
+        <div class="uk-margin">
+          <label class="uk-form-label" for="name">Name</label>
+          <div class="uk-form-controls">
+            <input class="uk-input" id="name" type="text" placeholder="Insert the name" name="Name" ngModel>
+          </div>
+        </div>
+
+        <div class="uk-margin">
+          <label class="uk-form-label" for="link">Link</label>
+          <div class="uk-form-controls">
+            <input class="uk-input" id="link" type="text" placeholder="Insert the link" name="Link" ngModel>
+          </div>
+        </div>
+
+        <div class="uk-margin">
+          <a routerLink="/inventory/footprints" class="uk-float-left uk-icon-button" uk-icon="icon: arrow-left" title="Back" uk-tooltip></a>
+          <a (click)="onSubmit(fooForm.value)" class="uk-float-right uk-icon-button" uk-icon="icon: plus" title="Add" uk-tooltip></a>
+        </div>
+
+      </fieldset>
+    </form>
+  </div>
+</div>

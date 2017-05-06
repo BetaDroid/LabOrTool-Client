@@ -1,0 +1,45 @@
+<app-menu></app-menu>
+
+<div class="uk-container uk-margin">
+  <div class="uk-padding uk-box-shadow-small">
+    <form [formGroup]="fooForm">
+      <fieldset class="uk-fieldset">
+
+        <legend class="uk-legend">View footprint</legend>
+
+        <div class="uk-margin">
+          <label class="uk-form-label" for="id">Id</label>
+          <div class="uk-form-controls">
+            <input class="uk-input" id="id" type="text" [formControl]="fooForm.controls['Id']">
+          </div>
+        </div>
+
+        <div class="uk-margin">
+          <label class="uk-form-label" for="name">Name</label>
+          <div class="uk-form-controls">
+            <input class="uk-input" id="name" type="text" [formControl]="fooForm.controls['Name']">
+          </div>
+        </div>
+
+        <div class="uk-margin">
+          <label class="uk-form-label" for="link">Link</label>
+          <div class="uk-form-controls">
+            <input class="uk-input" id="link" type="text" [formControl]="fooForm.controls['Link']">
+          </div>
+        </div>
+
+        <div *ngIf="!editable" class="uk-margin">
+          <a routerLink="/inventory/footprints" class="uk-float-left uk-icon-button" uk-icon="icon: arrow-left" title="Back" uk-tooltip></a>
+          <a (click)="EnableEdit()" class="uk-float-right uk-icon-button" uk-icon="icon: file-edit" title="Edit" uk-tooltip></a>
+          <a (click)="deleteFootprint(fooForm.value.Id)" class="uk-float-right uk-icon-button uk-margin-small-right" uk-icon="icon: trash" title="Delete" uk-tooltip></a>
+        </div>
+
+        <div *ngIf="editable" class="uk-margin">
+          <a (click)="DisableEdit()" class="uk-float-left uk-icon-button" uk-icon="icon: close" title="Cancel" uk-tooltip></a>
+          <a (click)="onSubmit(fooForm.value)" class="uk-float-right uk-icon-button" uk-icon="icon: check" title="Save" uk-tooltip></a>
+        </div>
+
+      </fieldset>
+    </form>
+  </div>
+</div>

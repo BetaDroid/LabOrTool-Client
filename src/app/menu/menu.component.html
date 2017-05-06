@@ -2,22 +2,28 @@
   <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
 
     <div class="uk-navbar-left">
-      <a class="uk-navbar-item uk-logo" href="/">LabOrTool</a>
+      <a routerLink="/dashboard" class="uk-navbar-item uk-logo">LabOrTool</a>
     </div>
 
     <div class="uk-navbar-right">
       <ul class="uk-navbar-nav">
         <li>
-          <a href="#">Inventory</a>
+          <a href="#"><span uk-icon="icon: album"></span><span class="uk-margin-small-left">Inventory</span></a>
           <div class="uk-navbar-dropdown">
             <ul class="uk-nav uk-navbar-dropdown-nav">
               <li><a routerLink="/inventory/manufacturers">Manufacturers</a></li>
               <li><a routerLink="/inventory/distributors">Distributors</a></li>
               <li><a routerLink="/inventory/locations">Locations</a></li>
+              <li><a routerLink="/inventory/footprints">Footprints</a></li>
+              <li><a routerLink="/inventory/categories">Categories</a></li>
+              <li><a routerLink="/inventory/categories-param-types">CATs</a></li>
             </ul>
           </div>
         </li>
-        <li><a href="/activities">Activities</a></li>
+        <li><a routerLink="/activities"><span uk-icon="icon: future"></span><span class="uk-margin-small-left">Activities</span></a></li>
+        <li><a routerLink="/projects"><span uk-icon="icon: thumbnails"></span><span class="uk-margin-small-left">Projects</span></a></li>
+        <li><a routerLink="/productions"><span uk-icon="icon: clock"></span><span class="uk-margin-small-left">Productions</span></a></li>
+        <li><a routerLink="/profile"><span uk-icon="icon: user"></span><span class="uk-margin-small-left">Account</span></a></li>
       </ul>
     </div>
 
