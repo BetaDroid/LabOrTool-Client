@@ -31,6 +31,9 @@ import { ViewDistributorComponent } from './inventory/distributor/view-distribut
 import { AddDistributorComponent } from './inventory/distributor/add-distributor/add-distributor.component';
 import { AddManufacturerComponent } from './inventory/manufacturer/add-manufacturer/add-manufacturer.component';
 import { ViewManufacturerComponent } from './inventory/manufacturer/view-manufacturer/view-manufacturer.component';
+import { AddLocationComponent } from './inventory/location/add-location/add-location.component';
+import { ViewLocationComponent } from './inventory/location/view-location/view-location.component';
+import {LocationService} from "./inventory/location/location.service";
 
 @NgModule({
   declarations: [
@@ -55,6 +58,8 @@ import { ViewManufacturerComponent } from './inventory/manufacturer/view-manufac
     AddDistributorComponent,
     AddManufacturerComponent,
     ViewManufacturerComponent,
+    AddLocationComponent,
+    ViewLocationComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,6 +77,9 @@ import { ViewManufacturerComponent } from './inventory/manufacturer/view-manufac
       { path: 'inventory/manufacturers', component: ManufacturerComponent },
       { path: 'inventory/manufacturers/add', component: AddManufacturerComponent },
       { path: 'inventory/manufacturers/view/:id', component: ViewManufacturerComponent },
+      { path: 'inventory/locations', component: LocationComponent },
+      { path: 'inventory/locations/add', component: AddLocationComponent },
+      { path: 'inventory/locations/view/:id', component: ViewLocationComponent },
       { path: 'users', component: UserComponent }
     ])
   ],
@@ -80,7 +88,8 @@ import { ViewManufacturerComponent } from './inventory/manufacturer/view-manufac
     LoginService,
     AlertService,
     DistributorService,
-    ManufacturerService
+    ManufacturerService,
+    LocationService
   ],
   bootstrap: [AppComponent]
 })
