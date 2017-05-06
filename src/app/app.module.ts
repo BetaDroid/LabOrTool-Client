@@ -37,6 +37,9 @@ import {LocationService} from "./inventory/location/location.service";
 import {FootprintService} from "./inventory/footprint/footprint.service";
 import { AddFootprintComponent } from './inventory/footprint/add-footprint/add-footprint.component';
 import { ViewFootprintComponent } from './inventory/footprint/view-footprint/view-footprint.component';
+import {CategoryService} from "./inventory/category/category.service";
+import { AddCategoryComponent } from './inventory/category/add-category/add-category.component';
+import { ViewCategoryComponent } from './inventory/category/view-category/view-category.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +68,8 @@ import { ViewFootprintComponent } from './inventory/footprint/view-footprint/vie
     ViewLocationComponent,
     AddFootprintComponent,
     ViewFootprintComponent,
+    AddCategoryComponent,
+    ViewCategoryComponent,
   ],
   imports: [
     BrowserModule,
@@ -88,6 +93,9 @@ import { ViewFootprintComponent } from './inventory/footprint/view-footprint/vie
       { path: 'inventory/footprints', component: FootprintComponent },
       { path: 'inventory/footprints/add', component: AddFootprintComponent },
       { path: 'inventory/footprints/view/:id', component: ViewFootprintComponent },
+      { path: 'inventory/categories', component: CategoryComponent },
+      { path: 'inventory/categories/add', component: AddCategoryComponent },
+      { path: 'inventory/categories/view/:id', component: ViewCategoryComponent },
       { path: 'users', component: UserComponent }
     ])
   ],
@@ -98,7 +106,8 @@ import { ViewFootprintComponent } from './inventory/footprint/view-footprint/vie
     DistributorService,
     ManufacturerService,
     LocationService,
-    FootprintService
+    FootprintService,
+    CategoryService
   ],
   bootstrap: [AppComponent]
 })
