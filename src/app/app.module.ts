@@ -29,6 +29,8 @@ import { CategoryParamTypeComponent } from './inventory/category-param-type/cate
 import { ComponentParamComponent } from './inventory/component-param/component-param.component';
 import { ViewDistributorComponent } from './inventory/distributor/view-distributor/view-distributor.component';
 import { AddDistributorComponent } from './inventory/distributor/add-distributor/add-distributor.component';
+import { AddManufacturerComponent } from './inventory/manufacturer/add-manufacturer/add-manufacturer.component';
+import { ViewManufacturerComponent } from './inventory/manufacturer/view-manufacturer/view-manufacturer.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { AddDistributorComponent } from './inventory/distributor/add-distributor
     ComponentParamComponent,
     ViewDistributorComponent,
     AddDistributorComponent,
+    AddManufacturerComponent,
+    ViewManufacturerComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,6 +70,8 @@ import { AddDistributorComponent } from './inventory/distributor/add-distributor
       { path: 'inventory/distributors/add', component: AddDistributorComponent },
       { path: 'inventory/distributors/view/:id', component: ViewDistributorComponent },
       { path: 'inventory/manufacturers', component: ManufacturerComponent },
+      { path: 'inventory/manufacturers/add', component: AddManufacturerComponent },
+      { path: 'inventory/manufacturers/view/:id', component: ViewManufacturerComponent },
       { path: 'users', component: UserComponent }
     ])
   ],

@@ -2,41 +2,41 @@
 
 <div class="uk-container uk-margin">
   <div class="uk-padding uk-box-shadow-small">
-    <form [formGroup]="disForm">
+    <form [formGroup]="manForm">
       <fieldset class="uk-fieldset">
 
-        <legend class="uk-legend">View distributor</legend>
+        <legend class="uk-legend">View manufacturer</legend>
 
         <div class="uk-margin">
           <label class="uk-form-label" for="id">Id</label>
           <div class="uk-form-controls">
-            <input class="uk-input" id="id" type="text" [formControl]="disForm.controls['Id']">
+            <input class="uk-input" id="id" type="text" [formControl]="manForm.controls['Id']">
           </div>
         </div>
 
         <div class="uk-margin">
           <label class="uk-form-label" for="name">Name</label>
           <div class="uk-form-controls">
-            <input class="uk-input" id="name" type="text" [formControl]="disForm.controls['Name']">
+            <input class="uk-input" id="name" type="text" [formControl]="manForm.controls['Name']">
           </div>
         </div>
 
         <div class="uk-margin">
           <label class="uk-form-label" for="website">Website</label>
           <div class="uk-form-controls">
-            <input class="uk-input" id="website" type="text" [formControl]="disForm.controls['Website']">
+            <input class="uk-input" id="website" type="text" [formControl]="manForm.controls['Website']">
           </div>
         </div>
 
         <div *ngIf="!editable" class="uk-margin">
-          <a routerLink="/inventory/distributors" class="uk-float-left uk-icon-button" uk-icon="icon: arrow-left" title="Back" uk-tooltip></a>
+          <a routerLink="/inventory/manufacturers" class="uk-float-left uk-icon-button" uk-icon="icon: arrow-left" title="Back" uk-tooltip></a>
           <a (click)="EnableEdit()" class="uk-float-right uk-icon-button" uk-icon="icon: file-edit" title="Edit" uk-tooltip></a>
-          <a (click)="deleteDistributor(disForm.value.Id)" class="uk-float-right uk-icon-button uk-margin-small-right" uk-icon="icon: trash" title="Delete" uk-tooltip></a>
+          <a (click)="deleteManufacturer(manForm.value.Id)" class="uk-float-right uk-icon-button uk-margin-small-right" uk-icon="icon: trash" title="Delete" uk-tooltip></a>
         </div>
 
         <div *ngIf="editable" class="uk-margin">
           <a (click)="DisableEdit()" class="uk-float-left uk-icon-button" uk-icon="icon: close" title="Cancel" uk-tooltip></a>
-          <a (click)="onSubmit(disForm.value)" class="uk-float-right uk-icon-button" uk-icon="icon: check" title="Save" uk-tooltip></a>
+          <a (click)="onSubmit(manForm.value)" class="uk-float-right uk-icon-button" uk-icon="icon: check" title="Save" uk-tooltip></a>
         </div>
 
       </fieldset>
