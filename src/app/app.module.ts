@@ -45,6 +45,10 @@ import { ViewCategoryParamTypeComponent } from './inventory/category-param-type/
 import {CategoryParamTypeService} from "./inventory/category-param-type/category-param-type.service";
 import {UnitService} from "./inventory/unit/unit.service";
 import {PrefixService} from "./inventory/prefix/prefix.service";
+import { AddComponentComponent } from './inventory/component/add-component/add-component.component';
+import { ViewComponentComponent } from './inventory/component/view-component/view-component.component';
+import {ComponentParamService} from "./inventory/component-param/component-param.service";
+import {ComponentService} from "./inventory/component/component.service";
 
 @NgModule({
   declarations: [
@@ -77,6 +81,8 @@ import {PrefixService} from "./inventory/prefix/prefix.service";
     ViewCategoryComponent,
     AddCategoryParamTypeComponent,
     ViewCategoryParamTypeComponent,
+    AddComponentComponent,
+    ViewComponentComponent,
   ],
   imports: [
     BrowserModule,
@@ -106,6 +112,9 @@ import {PrefixService} from "./inventory/prefix/prefix.service";
       { path: 'inventory/categories-param-types', component: CategoryParamTypeComponent },
       { path: 'inventory/categories-param-types/add', component: AddCategoryParamTypeComponent },
       { path: 'inventory/categories-param-types/view/:id', component: ViewCategoryParamTypeComponent },
+      { path: 'inventory/components', component: ComponentComponent },
+      { path: 'inventory/components/add', component: AddComponentComponent },
+      { path: 'inventory/components/view/:id', component: ViewComponentComponent },
       { path: 'users', component: UserComponent }
     ])
   ],
@@ -120,7 +129,9 @@ import {PrefixService} from "./inventory/prefix/prefix.service";
     CategoryService,
     UnitService,
     PrefixService,
-    CategoryParamTypeService
+    CategoryParamTypeService,
+    ComponentParamService,
+    ComponentService
   ],
   bootstrap: [AppComponent]
 })

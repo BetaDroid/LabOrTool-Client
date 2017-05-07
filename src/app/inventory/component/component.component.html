@@ -1,3 +1,57 @@
-<p>
-  component works!
-</p>
+<app-menu></app-menu>
+
+<div class="uk-container uk-margin">
+  <div class="uk-box-shadow-small uk-box-shadow-hover-medium">
+    <form class="uk-search uk-search-large uk-width-1-1">
+      <span uk-search-icon></span>
+      <input class="uk-search-input" type="search" placeholder="Search..." (keyup)="onKey($event)">
+    </form>
+  </div>
+
+  <div class="uk-overflow-auto uk-margin uk-box-shadow-small uk-box-shadow-hover-medium">
+    <table class="uk-table uk-table-hover uk-table-middle">
+      <caption class="uk-margin-small-top">
+        <div class="uk-text-center">
+          <h1>Components</h1>
+          <a routerLink="/inventory/components/add" class="uk-icon-button" uk-icon="icon: plus" title="Add" uk-tooltip></a>
+        </div>
+      </caption>
+      <thead>
+      <tr>
+        <th class="uk-table-shrink">Name</th>
+        <th class="uk-table-shrink">Manufacturer</th>
+        <th class="uk-table-shrink">Part Number</th>
+        <th class="uk-table-shrink">Distributor Code</th>
+        <th class="uk-table-shrink">Price</th>
+        <th class="uk-table-shrink">Datasheet</th>
+        <th class="uk-table-shrink">Footprint</th>
+        <th class="uk-table-shrink">Category</th>
+        <th class="uk-table-shrink">Options</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngIf="Components.length === 0">
+        <td colspan="3" class="uk-text-center">No data were found!</td>
+      </tr>
+      <tr *ngFor="let Cmp of Components">
+        <td class="uk-text-nowrap">{{Cmp.Name}}</td>
+        <td class="uk-text-nowrap">{{Cmp.Manufacturer}}</td>
+        <td class="uk-text-nowrap">{{Cmp.PartNumber}}</td>
+        <td class="uk-text-nowrap">{{Cmp.DistributorCode}}</td>
+        <td class="uk-text-nowrap">{{Cmp.Price}}</td>
+        <td class="uk-table-link">
+          <a class="uk-link-reset" href="{{Cmp.Datasheet}}" uk-icon="icon: link"></a>
+        </td>
+        <td class="uk-table-link">
+          <a class="uk-link-reset" href="{{Cmp.FootprintLink}}">{{Cmp.Footprint}}</a>
+        </td>
+        <td class="uk-text-nowrap">{{Cmp.Category}}</td>
+        <td class="uk-text-nowrap">
+          <a (click)="deleteComponent(Cmp.Id)" class="uk-icon-button uk-margin-small-right" uk-icon="icon: trash" title="Remove" uk-tooltip></a>
+          <a routerLink="/inventory/components/view/{{Cmp.Id}}" class="uk-icon-button" uk-icon="icon: list" title="View" uk-tooltip></a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
