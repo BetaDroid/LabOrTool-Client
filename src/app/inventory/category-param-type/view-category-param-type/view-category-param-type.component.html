@@ -1,3 +1,86 @@
-<p>
-  view-category-param-type works!
-</p>
+<app-menu></app-menu>
+
+<div class="uk-container uk-margin">
+  <div class="uk-padding uk-box-shadow-small">
+    <form [formGroup]="cptForm">
+      <fieldset class="uk-fieldset">
+
+        <legend class="uk-legend">View category parameter type</legend>
+
+        <div class="uk-margin">
+          <label class="uk-form-label" for="id">Id</label>
+          <div class="uk-form-controls">
+            <input class="uk-input" id="id" type="text" [formControl]="cptForm.controls['Id']">
+          </div>
+        </div>
+
+        <div class="uk-margin">
+          <label class="uk-form-label" for="name">Name</label>
+          <div class="uk-form-controls">
+            <input class="uk-input" id="name" type="text" [formControl]="cptForm.controls['Name']">
+          </div>
+        </div>
+
+        <div class="uk-margin">
+          <label class="uk-form-label" for="category">Category</label>
+          <div class="uk-form-controls">
+            <select class="uk-select" id="category" [formControl]="cptForm.controls['CategoryId']">
+              <option></option>
+              <option *ngFor="let Cat of Categories" value="{{Cat.Id}}">{{Cat.Name}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="uk-margin">
+          <label class="uk-form-label" for="unit">Unit</label>
+          <div class="uk-form-controls">
+            <select class="uk-select" id="unit" [formControl]="cptForm.controls['UnitId']">
+              <option></option>
+              <option *ngFor="let Uni of Units" value="{{Uni.Id}}">{{Uni.Name}} ({{Uni.ShortName}})</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="uk-margin">
+          <label class="uk-form-label" for="order">Order</label>
+          <div class="uk-form-controls">
+            <input
+              class="uk-input"
+              id="order"
+              type="text"
+              placeholder="Insert the order number"
+              name="Order"
+              [formControl]="cptForm.controls['Order']"
+            >
+          </div>
+        </div>
+
+        <div class="uk-margin">
+          <label class="uk-form-label" for="note">Note</label>
+          <div class="uk-form-controls">
+            <textarea
+              class="uk-textarea uk-resize-vertical"
+              id="note"
+              rows="5"
+              placeholder="Insert the note"
+              name="Note"
+              [formControl]="cptForm.controls['Note']"
+            ></textarea>
+          </div>
+        </div>
+
+        <div *ngIf="!editable" class="uk-margin">
+          <a routerLink="/inventory/categories-param-types" class="uk-float-left uk-icon-button" uk-icon="icon: arrow-left" title="Back" uk-tooltip></a>
+          <a (click)="EnableEdit()" class="uk-float-right uk-icon-button" uk-icon="icon: file-edit" title="Edit" uk-tooltip></a>
+          <a (click)="deleteCPT(cptForm.value.Id)" class="uk-float-right uk-icon-button uk-margin-small-right" uk-icon="icon: trash" title="Delete" uk-tooltip></a>
+        </div>
+
+        <div *ngIf="editable" class="uk-margin">
+          <a (click)="DisableEdit()" class="uk-float-left uk-icon-button" uk-icon="icon: close" title="Cancel" uk-tooltip></a>
+          <a (click)="onSubmit(cptForm.value)" class="uk-float-right uk-icon-button" uk-icon="icon: check" title="Save" uk-tooltip></a>
+        </div>
+
+      </fieldset>
+    </form>
+  </div>
+</div>
