@@ -40,6 +40,11 @@ import { ViewFootprintComponent } from './inventory/footprint/view-footprint/vie
 import {CategoryService} from "./inventory/category/category.service";
 import { AddCategoryComponent } from './inventory/category/add-category/add-category.component';
 import { ViewCategoryComponent } from './inventory/category/view-category/view-category.component';
+import { AddCategoryParamTypeComponent } from './inventory/category-param-type/add-category-param-type/add-category-param-type.component';
+import { ViewCategoryParamTypeComponent } from './inventory/category-param-type/view-category-param-type/view-category-param-type.component';
+import {CategoryParamTypeService} from "./inventory/category-param-type/category-param-type.service";
+import {UnitService} from "./inventory/unit/unit.service";
+import {PrefixService} from "./inventory/prefix/prefix.service";
 
 @NgModule({
   declarations: [
@@ -70,6 +75,8 @@ import { ViewCategoryComponent } from './inventory/category/view-category/view-c
     ViewFootprintComponent,
     AddCategoryComponent,
     ViewCategoryComponent,
+    AddCategoryParamTypeComponent,
+    ViewCategoryParamTypeComponent,
   ],
   imports: [
     BrowserModule,
@@ -96,6 +103,9 @@ import { ViewCategoryComponent } from './inventory/category/view-category/view-c
       { path: 'inventory/categories', component: CategoryComponent },
       { path: 'inventory/categories/add', component: AddCategoryComponent },
       { path: 'inventory/categories/view/:id', component: ViewCategoryComponent },
+      { path: 'inventory/categories-param-types', component: CategoryParamTypeComponent },
+      { path: 'inventory/categories-param-types/add', component: AddCategoryParamTypeComponent },
+      { path: 'inventory/categories-param-types/view/:id', component: ViewCategoryParamTypeComponent },
       { path: 'users', component: UserComponent }
     ])
   ],
@@ -107,7 +117,10 @@ import { ViewCategoryComponent } from './inventory/category/view-category/view-c
     ManufacturerService,
     LocationService,
     FootprintService,
-    CategoryService
+    CategoryService,
+    UnitService,
+    PrefixService,
+    CategoryParamTypeService
   ],
   bootstrap: [AppComponent]
 })
