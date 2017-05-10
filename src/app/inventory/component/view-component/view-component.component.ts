@@ -7,16 +7,19 @@ import { DistributorService } from "../../distributor/distributor.service";
 import { LocationService } from "../../location/location.service";
 import { FootprintService } from "../../footprint/footprint.service";
 import { CategoryService } from "../../category/category.service";
-import {ComponentParamService} from "../../component-param/component-param.service";
+import { ComponentParamService } from "../../component-param/component-param.service";
+import { PrefixService } from "../../prefix/prefix.service";
+import { CategoryParamTypeService } from "../../category-param-type/category-param-type.service";
 @Component({
   selector: 'app-view-component',
   templateUrl: './view-component.component.html',
   styleUrls: ['./view-component.component.css']
 })
 export class ViewComponentComponent implements OnInit {
-  cmpForm: FormGroup;
+  cmpForm: FormGroup; cpsForms: FormGroup[] = [];
   private editable: boolean = false;
-  id; Manufacturers = []; Distributors = []; Locations = []; Footprints = []; Categories = []; CPs = [];
+  id; Manufacturers = []; Distributors = []; Locations = [];
+  Footprints = []; Categories = []; CPTs = []; Prefixes = [];
 
 
   constructor(
@@ -29,7 +32,9 @@ export class ViewComponentComponent implements OnInit {
     private _locSer: LocationService,
     private _fooSer: FootprintService,
     private _catSer: CategoryService,
-    private _cpsSer: ComponentParamService) {
+    private _cpsSer: ComponentParamService,
+    private _cptSer: CategoryParamTypeService,
+    private _preSer: PrefixService) {
     this.cmpForm = _formBuilder.group({
       'Id': new FormControl({value: '', disabled: true}),
       'Name': new FormControl({value: '', disabled: true}),
@@ -45,6 +50,7 @@ export class ViewComponentComponent implements OnInit {
       'CategoryId': new FormControl({value: '', disabled: true}),
       'Note': new FormControl({value: '', disabled: true})
     });
+
     _route.params.subscribe(params => {
       this.id = +params['id'];
     });
@@ -52,9 +58,15 @@ export class ViewComponentComponent implements OnInit {
 
   ngOnInit() {
     this.getComponent();
-    this._cpsSer.GetComponentParams(this.id).subscribe(data => {
-      this.CPs = data.json();
+
+    this._cptSer.GetCatParamTypes().subscribe(data => {
+      this.CPTs = data.json();
     });
+    this._preSer.GetPrefixes().subscribe(data => {
+      this.Prefixes = data.json();
+    });
+    this.getCP();
+
     this._manSer.GetManufacturers().subscribe(data => {
       this.Manufacturers = data.json();
     });
@@ -210,6 +222,22 @@ export class ViewComponentComponent implements OnInit {
         'CategoryId': new FormControl({value: data.json().CategoryId, disabled: true}),
         'Note': new FormControl({value: data.json().Note, disabled: true})
       });
+    });
+  }
+
+  private getCP() {
+    this._cpsSer.GetComponentParams(this.id).subscribe(data => {
+      let cps = data.json();
+      for (let i = 0; i < cps.length; i++) {
+        this.cpsForms[i] = this._formBuilder.group({
+          'Id': new FormControl({value: cps[i].Id, disabled: true}),
+          'ComponentId': new FormControl({value: cps[i].ComponentId, disabled: true}),
+          'CPT': new FormControl({value: cps[i].CPT, disabled: true}),
+          'Value': new FormControl({value: cps[i].Value, disabled: true}),
+          'Prefix': new FormControl({value: cps[i].Prefix, disabled: true}),
+          'Note': new FormControl({value: cps[i].Note, disabled: true})
+        });
+      }
     });
   }
 }

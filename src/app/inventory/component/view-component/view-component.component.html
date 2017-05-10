@@ -120,15 +120,61 @@
           </div>
         </div>
 
+        <h3>Component parameters</h3>
+        <div *ngIf="cpsForms.length == 0">No data were found</div>
+        <form *ngFor="let cpForm of cpsForms" [formGroup]="cpForm">
+          <div class="uk-margin">
+            <label class="uk-form-label" for="cpId{{cpForm.Id}}">Id</label>
+            <div class="uk-form-controls">
+              <input class="uk-input" id="cpId{{cpForm.Id}}" type="text" [formControl]="cpForm.controls['Id']">
+            </div>
+          </div>
+
+          <div class="uk-margin">
+            <label class="uk-form-label" for="cpCTP{{cpForm.CTP}}">Category parameter type</label>
+            <div class="uk-form-controls">
+              <input class="uk-input" id="cpCTP{{cpForm.CTP}}" type="text" [formControl]="cpForm.controls['CPT']">
+            </div>
+          </div>
+
+          <div class="uk-margin">
+            <label class="uk-form-label" for="cpValue{{cpForm.Value}}">Value</label>
+            <div class="uk-form-controls">
+              <input class="uk-input" id="cpValue{{cpForm.Value}}" type="text" [formControl]="cpForm.controls['Value']">
+            </div>
+          </div>
+
+          <div class="uk-margin">
+            <label class="uk-form-label" for="cpPrefix{{cpForm.Prefix}}">Prefix</label>
+            <div class="uk-form-controls">
+              <input class="uk-input" id="cpPrefix{{cpForm.Prefix}}" type="text" [formControl]="cpForm.controls['Prefix']">
+            </div>
+          </div>
+
+          <div class="uk-margin">
+            <label class="uk-form-label" for="cpNote{{cpForm.Note}}">Note</label>
+            <div class="uk-form-controls">
+            <textarea
+              class="uk-textarea uk-resize-vertical"
+              id="cpNote{{cpForm.Note}}"
+              rows="5"
+              name="Note"
+              [formControl]="cpForm.controls['Note']"
+            ></textarea>
+            </div>
+          </div>
+          <hr class="uk-divider-icon">
+        </form>
+
         <div *ngIf="!editable" class="uk-margin">
           <a routerLink="/inventory/components" class="uk-float-left uk-icon-button" uk-icon="icon: arrow-left" title="Back" uk-tooltip></a>
           <a (click)="EnableEdit()" class="uk-float-right uk-icon-button" uk-icon="icon: file-edit" title="Edit" uk-tooltip></a>
-          <a (click)="deleteComponent(cmpForm.value.Id)" class="uk-float-right uk-icon-button uk-margin-small-right" uk-icon="icon: trash" title="Delete" uk-tooltip></a>
+          <a (click)="deleteComponent(cmpForm.value.Id)" class="uk-float-right uk-icon-button uk-margin-small-right" uk-icon="icon: trash" title="Delete component" uk-tooltip></a>
         </div>
 
         <div *ngIf="editable" class="uk-margin">
           <a (click)="DisableEdit()" class="uk-float-left uk-icon-button" uk-icon="icon: close" title="Cancel" uk-tooltip></a>
-          <a (click)="onSubmit(cmpForm.value)" class="uk-float-right uk-icon-button" uk-icon="icon: check" title="Save" uk-tooltip></a>
+          <a (click)="onSubmit(cmpForm.value)" class="uk-float-right uk-icon-button" uk-icon="icon: check" title="Save component" uk-tooltip></a>
         </div>
 
       </fieldset>

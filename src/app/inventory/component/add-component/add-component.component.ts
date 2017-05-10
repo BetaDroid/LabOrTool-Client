@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ComponentService} from "../component.service";
 import {Router} from "@angular/router";
-import {ComponentParamService} from "../../component-param/component-param.service";
-import {CategoryParamTypeService} from "../../category-param-type/category-param-type.service";
-import {forEach} from "@angular/router/src/utils/collection";
-import {PrefixService} from "../../prefix/prefix.service";
 import {ManufacturerService} from "../../manufacturer/manufacturer.service";
 import {DistributorService} from "../../distributor/distributor.service";
 import {LocationService} from "../../location/location.service";
@@ -17,14 +13,10 @@ import {CategoryService} from "../../category/category.service";
   styleUrls: ['./add-component.component.css']
 })
 export class AddComponentComponent implements OnInit {
-  counter: number = 0; CPTs = []; Prefixes = [];
   Manufacturers = []; Distributors = []; Locations = []; Footprints = []; Categories = [];
 
   constructor(
     private _comSer: ComponentService,
-    private _copSer: ComponentParamService,
-    private _cptSer: CategoryParamTypeService,
-    private _preSer: PrefixService,
     private _manSer: ManufacturerService,
     private _disSer: DistributorService,
     private _locSer: LocationService,
@@ -49,55 +41,6 @@ export class AddComponentComponent implements OnInit {
     this._catSer.GetCategories().subscribe(data => {
       this.Categories = data.json();
     });
-    this._cptSer.GetCatParamTypes().subscribe(
-      data => {
-        let tmp = data.json();
-        for (let i = 0; i < tmp.length; i++) {
-          this.CPTs[i] = "<option value='" + tmp[i].Id + "'>" + tmp[i].Name + "</option>";
-        }
-      }
-    );
-    this._preSer.GetPrefixes().subscribe(
-      data => {
-        let tmp = data.json();
-        for (let i = 0; i < tmp.length; i++) {
-          this.Prefixes[i] = "<option value='" + tmp[i].Id + "'>" + tmp[i].Name + "</option>";
-        }
-      }
-    );
-  }
-
-  addComponentParam() {
-    this.counter++;
-    let componentParam = "" +
-      "<div class='uk-margin'>" +
-      "<label class='uk-form-label' for='cp" + this.counter + "'>Category parameter type</label>" +
-      "<div class='uk-form-controls'>"+
-      "<select class='uk-select' id='cp" + this.counter + "' name='CP" + this.counter + "' ngModel>" +
-      "<option></option>" +
-      this.CPTs +
-      "</select>" +
-      "</div>" +
-      "</div>" +
-      "<div class='uk-margin'>" +
-      "<label class='uk-form-label' for='value" + this.counter + "'>Value</label>" +
-      "<div class='uk-form-controls'>" +
-      "<input class='uk-input' id='value" + this.counter + "' type='text' name='Value" + this.counter + "' ngModel>" +
-      "</div>" +
-      "</div>" +
-      "<div class='uk-margin'>" +
-      "<label class='uk-form-label' for='prefix" + this.counter + "'>Prefix</label>" +
-      "<div class='uk-form-controls'>"+
-      "<select class='uk-select' id='prefix" + this.counter + "' name='Prefix" + this.counter + "' ngModel>" +
-      "<option></option>" +
-      this.Prefixes +
-      "</select>" +
-      "</div>" +
-      "</div>"
-    ;
-
-    let element = document.getElementById('CPs');
-    element.innerHTML += componentParam;
   }
 
   onSubmit(_formData: any) {
