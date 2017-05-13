@@ -37,9 +37,9 @@ export class ViewCategoryParamTypeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getCPT();
     this._catSer.GetCategories().subscribe(data => { this.Categories = data.json(); });
     this._uniSer.GetUnits().subscribe(data => { this.Units = data.json(); });
+    this.getCPT();
   }
 
   onSubmit(_formData: any) {

@@ -1,3 +1,89 @@
-<p>
-  view-component-param works!
-</p>
+<app-menu></app-menu>
+
+<div class="uk-container uk-margin">
+  <div class="uk-padding uk-box-shadow-small">
+    <form [formGroup]="cpForm">
+      <fieldset class="uk-fieldset">
+
+        <legend class="uk-legend">View component parameter</legend>
+
+        <div class="uk-margin">
+          <label class="uk-form-label" for="id">Id</label>
+          <div class="uk-form-controls">
+            <input class="uk-input" id="id" type="text" [formControl]="cpForm.controls['Id']">
+          </div>
+        </div>
+
+        <div class="uk-margin">
+          <label class="uk-form-label" for="component">Component</label>
+          <div class="uk-form-controls">
+            <select class="uk-select" id="component" [formControl]="cpForm.controls['ComponentId']">
+              <option></option>
+              <option *ngFor="let Com of Components" value="{{Com.Id}}">{{Com.Name}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="uk-margin">
+          <label class="uk-form-label" for="cpt">Category parameter type</label>
+          <div class="uk-form-controls">
+            <select class="uk-select" id="cpt" [formControl]="cpForm.controls['CategoryParamTypeId']">
+              <option></option>
+              <option *ngFor="let Cpt of CPTs" value="{{Cpt.Id}}">{{Cpt.Name}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="uk-margin">
+          <label class="uk-form-label" for="value">Value</label>
+          <div class="uk-form-controls">
+            <input
+              class="uk-input"
+              id="value"
+              type="text"
+              placeholder="Insert the value"
+              name="Value"
+              [formControl]="cpForm.controls['Value']"
+            >
+          </div>
+        </div>
+
+        <div class="uk-margin">
+          <label class="uk-form-label" for="prefix">Prefix</label>
+          <div class="uk-form-controls">
+            <select class="uk-select" id="prefix" [formControl]="cpForm.controls['PrefixId']">
+              <option></option>
+              <option *ngFor="let Pre of Prefixes" value="{{Pre.Id}}">{{Pre.Name}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="uk-margin">
+          <label class="uk-form-label" for="note">Note</label>
+          <div class="uk-form-controls">
+            <textarea
+              class="uk-textarea uk-resize-vertical"
+              id="note"
+              rows="5"
+              placeholder="Insert the note"
+              name="Note"
+              [formControl]="cpForm.controls['Note']"
+            ></textarea>
+          </div>
+        </div>
+
+        <div *ngIf="!editable" class="uk-margin">
+          <a routerLink="/inventory/components/view/{{cpForm.value.ComponentId}}" class="uk-float-left uk-icon-button" uk-icon="icon: arrow-left" title="Back" uk-tooltip></a>
+          <a (click)="EnableEdit()" class="uk-float-right uk-icon-button" uk-icon="icon: file-edit" title="Edit" uk-tooltip></a>
+          <a (click)="deleteCP(cpForm.value.Id)" class="uk-float-right uk-icon-button uk-margin-small-right" uk-icon="icon: trash" title="Delete" uk-tooltip></a>
+        </div>
+
+        <div *ngIf="editable" class="uk-margin">
+          <a (click)="DisableEdit()" class="uk-float-left uk-icon-button" uk-icon="icon: close" title="Cancel" uk-tooltip></a>
+          <a (click)="onSubmit(cpForm.value)" class="uk-float-right uk-icon-button" uk-icon="icon: check" title="Save" uk-tooltip></a>
+        </div>
+
+      </fieldset>
+    </form>
+  </div>
+</div>

@@ -144,12 +144,17 @@
             </div>
           </div>
 
+          <div class="uk-margin uk-clearfix">
+            <a routerLink="/inventory/component-params/view/{{cpForm.value.Id}}" class="uk-icon-button uk-float-right" uk-icon="icon: list" title="View parameter" uk-tooltip></a>
+            <a (click)="deleteComponentParam(cpForm.value.Id)" class="uk-icon-button uk-margin-small-right uk-float-right" uk-icon="icon: trash" title="Delete parameter" uk-tooltip></a>
+          </div>
+
           <hr class="uk-divider-icon">
         </form>
 
         <div *ngIf="!editable" class="uk-margin">
           <a routerLink="/inventory/components" class="uk-float-left uk-icon-button" uk-icon="icon: arrow-left" title="Back" uk-tooltip></a>
-          <a (click)="EnableEdit()" class="uk-float-right uk-icon-button" uk-icon="icon: file-edit" title="Edit" uk-tooltip></a>
+          <a (click)="EnableEdit()" class="uk-float-right uk-icon-button" uk-icon="icon: file-edit" title="Edit component" uk-tooltip></a>
           <a (click)="deleteComponent(cmpForm.value.Id)" class="uk-float-right uk-icon-button uk-margin-small-right" uk-icon="icon: trash" title="Delete component" uk-tooltip></a>
           <a routerLink="/inventory/component-params/add/{{cmpForm.value.Id}}" class="uk-float-right uk-icon-button uk-margin-small-right" uk-icon="icon: plus" title="Add new parameter" uk-tooltip></a>
         </div>

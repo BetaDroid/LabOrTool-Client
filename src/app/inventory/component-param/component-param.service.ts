@@ -25,18 +25,23 @@ export class ComponentParamService {
       .catch(this.handleError);
   };
 
-  public PostComponentParams = (_body): Observable<Response> => {
-    return this._http.post(this._host.LabOrTool + '/inventory/component-params/', JSON.stringify(_body), this.options)
+  public GetComponentParam = (_id: number): Observable<Response> => {
+    return this._http.get(this._host.LabOrTool + '/inventory/component-param/' + _id, this.options)
       .catch(this.handleError);
   };
 
-  public PutComponentParams = (_id: number, _body): Observable<Response> => {
-    return this._http.put(this._host.LabOrTool + '/inventory/component-params/' + _id, JSON.stringify(_body), this.options)
+  public PostComponentParam = (_body): Observable<Response> => {
+    return this._http.post(this._host.LabOrTool + '/inventory/component-param/', JSON.stringify(_body), this.options)
       .catch(this.handleError);
   };
 
-  public DeleteComponentParams = (_id: number): Observable<Response> => {
-    return this._http.delete(this._host.LabOrTool + '/inventory/component-params/' + _id, this.options)
+  public PutComponentParam = (_id: number, _body): Observable<Response> => {
+    return this._http.put(this._host.LabOrTool + '/inventory/component-param/' + _id, JSON.stringify(_body), this.options)
+      .catch(this.handleError);
+  };
+
+  public DeleteComponentParam = (_id: number): Observable<Response> => {
+    return this._http.delete(this._host.LabOrTool + '/inventory/component-param/' + _id, this.options)
       .catch(this.handleError);
   };
 

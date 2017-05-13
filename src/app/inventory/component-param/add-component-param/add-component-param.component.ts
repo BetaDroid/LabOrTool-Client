@@ -54,7 +54,7 @@ export class AddComponentParamComponent implements OnInit {
     //console.log(_formData);
 
     if (!error)
-      this._cpSer.PostComponentParams(_formData).subscribe(
+      this._cpSer.PostComponentParam(_formData).subscribe(
         () => {  }, // TODO: check if the response is true
         () => {},
         () => { this._router.navigate(['/inventory/components/view/' + this.id]); }

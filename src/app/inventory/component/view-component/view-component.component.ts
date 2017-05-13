@@ -173,6 +173,14 @@ export class ViewComponentComponent implements OnInit {
     );
   }
 
+  deleteComponentParam(_id: number) {
+    this._cpsSer.DeleteComponentParam(_id).subscribe(
+      () => {}, // TODO: check the response
+      () => {},
+      () => { location.reload(); } // TODO: improve this ...
+    );
+  }
+
   EnableEdit() {
     document.getElementById('name').removeAttribute('disabled');
     document.getElementById('manufacturer').removeAttribute('disabled');
