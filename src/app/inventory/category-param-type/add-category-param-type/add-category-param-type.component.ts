@@ -57,6 +57,5 @@ export class AddCategoryParamTypeComponent implements OnInit {
         () => {},
         () => { this._router.navigate(['/inventory/categories-param-types']); }
       );
-
   }
 }

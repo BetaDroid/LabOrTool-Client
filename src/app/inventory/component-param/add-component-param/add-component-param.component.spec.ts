@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ComponentParamComponent } from './component-param.component';
+import { AddComponentParamComponent } from './add-component-param.component';
 
-describe('ComponentParamComponent', () => {
-  let component: ComponentParamComponent;
-  let fixture: ComponentFixture<ComponentParamComponent>;
+describe('AddComponentParamComponent', () => {
+  let component: AddComponentParamComponent;
+  let fixture: ComponentFixture<AddComponentParamComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ComponentParamComponent ]
+      declarations: [ AddComponentParamComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ComponentParamComponent);
+    fixture = TestBed.createComponent(AddComponentParamComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

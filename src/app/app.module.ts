@@ -26,7 +26,6 @@ import { FootprintComponent } from './inventory/footprint/footprint.component';
 import { CategoryComponent } from './inventory/category/category.component';
 import { ComponentComponent } from './inventory/component/component.component';
 import { CategoryParamTypeComponent } from './inventory/category-param-type/category-param-type.component';
-import { ComponentParamComponent } from './inventory/component-param/component-param.component';
 import { ViewDistributorComponent } from './inventory/distributor/view-distributor/view-distributor.component';
 import { AddDistributorComponent } from './inventory/distributor/add-distributor/add-distributor.component';
 import { AddManufacturerComponent } from './inventory/manufacturer/add-manufacturer/add-manufacturer.component';
@@ -49,6 +48,8 @@ import { AddComponentComponent } from './inventory/component/add-component/add-c
 import { ViewComponentComponent } from './inventory/component/view-component/view-component.component';
 import {ComponentParamService} from "./inventory/component-param/component-param.service";
 import {ComponentService} from "./inventory/component/component.service";
+import { AddComponentParamComponent } from './inventory/component-param/add-component-param/add-component-param.component';
+import { ViewComponentParamComponent } from './inventory/component-param/view-component-param/view-component-param.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,6 @@ import {ComponentService} from "./inventory/component/component.service";
     CategoryComponent,
     ComponentComponent,
     CategoryParamTypeComponent,
-    ComponentParamComponent,
     ViewDistributorComponent,
     AddDistributorComponent,
     AddManufacturerComponent,
@@ -83,6 +83,8 @@ import {ComponentService} from "./inventory/component/component.service";
     ViewCategoryParamTypeComponent,
     AddComponentComponent,
     ViewComponentComponent,
+    AddComponentParamComponent,
+    ViewComponentParamComponent,
   ],
   imports: [
     BrowserModule,
@@ -115,6 +117,8 @@ import {ComponentService} from "./inventory/component/component.service";
       { path: 'inventory/components', component: ComponentComponent },
       { path: 'inventory/components/add', component: AddComponentComponent },
       { path: 'inventory/components/view/:id', component: ViewComponentComponent },
+      { path: 'inventory/component-params/add/:id', component: AddComponentParamComponent },
+      { path: 'inventory/component-params/view/:id', component: ViewComponentParamComponent },
       { path: 'users', component: UserComponent }
     ])
   ],
