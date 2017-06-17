@@ -1,0 +1,54 @@
+<app-menu></app-menu>
+
+<div class="uk-container">
+  <div class="uk-box-shadow-small uk-box-shadow-hover-medium uk-margin-medium-bottom uk-card-default">
+    <form class="uk-search uk-search-large uk-width-1-1">
+      <span uk-search-icon></span>
+      <input class="uk-search-input" type="search" placeholder="Search..." (keyup)="onKey($event)">
+    </form>
+  </div>
+
+  <div class="uk-overflow-auto uk-box-shadow-medium uk-padding uk-margin-medium-bottom uk-card-default">
+    <table class="uk-table uk-table-hover uk-table-divider uk-margin-remove">
+      <caption>
+        <h2 class="uk-float-left uk-margin-small-left uk-margin-small-bottom">Productions</h2>
+        <div class="uk-float-right uk-margin-small-right uk-margin-small-bottom">
+          <a routerLink="/productions/add" class="uk-icon-button" uk-icon="icon: plus" title="Add" uk-tooltip></a>
+        </div>
+      </caption>
+
+      <thead>
+      <tr>
+        <th class="uk-table-expand">Activity</th>
+        <th class="uk-table-shrink">Board</th>
+        <th class="uk-table-shrink">Quantity</th>
+        <th class="uk-table-shrink uk-text-nowrap">Work code</th>
+        <th class="uk-table-shrink">Deadline</th>
+        <th class="uk-table-shrink">Status</th>
+        <th class="uk-table-shrink">Employee</th>
+        <th class="uk-table-shrink">Options</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngIf="Productions.length === 0">
+        <td colspan="8" class="uk-text-center">No data were found!</td>
+      </tr>
+
+      <tr *ngFor="let Pro of Productions">
+        <td class="uk-text-truncate uk-text-middle">{{Pro.ActivityTitle}}</td>
+        <td class="uk-text-nowrap uk-text-middle">{{Pro.BoardName}}</td>
+        <td class="uk-text-nowrap uk-text-middle">{{Pro.Quantity}}</td>
+        <td class="uk-text-nowrap uk-text-middle">{{Pro.WorkCode}}</td>
+        <td class="uk-text-nowrap uk-text-middle">{{Pro.Deadline}}</td>
+        <td class="uk-text-nowrap uk-text-middle">{{Pro.StatusName}}</td>
+        <td class="uk-text-nowrap uk-text-middle">{{Pro.Employee}}</td>
+        <td class="uk-text-nowrap">
+          <a (click)="deleteProduction(Pro.Id)" class="uk-icon-button uk-margin-small-right" uk-icon="icon: trash" title="Remove" uk-tooltip></a>
+          <a routerLink="/productions/view/{{Pro.Id}}" class="uk-icon-button" uk-icon="icon: list" title="View" uk-tooltip></a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

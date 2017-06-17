@@ -51,6 +51,21 @@ import {ComponentService} from './inventory/component/component.service';
 import { AddComponentParamComponent } from './inventory/component-param/add-component-param/add-component-param.component';
 import { ViewComponentParamComponent } from './inventory/component-param/view-component-param/view-component-param.component';
 import {ChartsModule} from 'ng2-charts';
+import { ActivityComponent } from './activity/activity.component';
+import { NoteComponent } from './note/note.component';
+import { ProjectComponent } from './project/project.component';
+import { ProductionComponent } from './production/production.component';
+import { AddActivityComponent } from './activity/add-activity/add-activity.component';
+import { ViewActivityComponent } from './activity/view-activity/view-activity.component';
+import { AddNoteComponent } from './note/add-note/add-note.component';
+import { ViewNoteComponent } from './note/view-note/view-note.component';
+import { AddProductionComponent } from './production/add-production/add-production.component';
+import { ViewProductionComponent } from './production/view-production/view-production.component';
+import { AddProjectComponent } from './project/add-project/add-project.component';
+import { ViewProjectComponent } from './project/view-project/view-project.component';
+import {ActivityService} from "./activity/activity.service";
+import {ProductionService} from "./production/production.service";
+import {ProjectService} from "./project/project.service";
 
 @NgModule({
   declarations: [
@@ -86,6 +101,18 @@ import {ChartsModule} from 'ng2-charts';
     ViewComponentComponent,
     AddComponentParamComponent,
     ViewComponentParamComponent,
+    ActivityComponent,
+    NoteComponent,
+    ProjectComponent,
+    ProductionComponent,
+    AddActivityComponent,
+    ViewActivityComponent,
+    AddNoteComponent,
+    ViewNoteComponent,
+    AddProductionComponent,
+    ViewProductionComponent,
+    AddProjectComponent,
+    ViewProjectComponent,
   ],
   imports: [
     BrowserModule,
@@ -97,6 +124,21 @@ import {ChartsModule} from 'ng2-charts';
       { path: 'logout', component: LogoutComponent },
       { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
+      { path: 'activities', component: ActivityComponent },
+      { path: 'activities/add', component: AddActivityComponent },
+      { path: 'activities/view/:id', component: ViewActivityComponent },
+      { path: 'productions', component: ProductionComponent },
+      { path: 'productions/add', component: AddProductionComponent },
+      { path: 'productions/view/:id', component: ViewProductionComponent },
+      { path: 'notes', component: NoteComponent },
+      { path: 'notes/add', component: AddNoteComponent },
+      { path: 'notes/view/:id', component: ViewNoteComponent },
+      { path: 'projects', component: ProjectComponent },
+      { path: 'projects/add', component: AddProjectComponent },
+      { path: 'projects/view/:id', component: ViewProjectComponent },
+      { path: 'inventory/components', component: ComponentComponent },
+      { path: 'inventory/components/add', component: AddComponentComponent },
+      { path: 'inventory/components/view/:id', component: ViewComponentComponent },
       { path: 'inventory/distributors', component: DistributorComponent },
       { path: 'inventory/distributors/add', component: AddDistributorComponent },
       { path: 'inventory/distributors/view/:id', component: ViewDistributorComponent },
@@ -115,9 +157,6 @@ import {ChartsModule} from 'ng2-charts';
       { path: 'inventory/categories-param-types', component: CategoryParamTypeComponent },
       { path: 'inventory/categories-param-types/add', component: AddCategoryParamTypeComponent },
       { path: 'inventory/categories-param-types/view/:id', component: ViewCategoryParamTypeComponent },
-      { path: 'inventory/components', component: ComponentComponent },
-      { path: 'inventory/components/add', component: AddComponentComponent },
-      { path: 'inventory/components/view/:id', component: ViewComponentComponent },
       { path: 'inventory/component-params/add/:id', component: AddComponentParamComponent },
       { path: 'inventory/component-params/view/:id', component: ViewComponentParamComponent },
       { path: 'users', component: UserComponent }
@@ -137,7 +176,10 @@ import {ChartsModule} from 'ng2-charts';
     PrefixService,
     CategoryParamTypeService,
     ComponentParamService,
-    ComponentService
+    ComponentService,
+    ActivityService,
+    ProductionService,
+    ProjectService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ComponentService} from "./component.service";
+import {ComponentService} from './component.service';
 
 @Component({
   selector: 'app-component',
@@ -12,14 +12,14 @@ export class ComponentComponent implements OnInit {
   constructor(private _comSer: ComponentService) { }
 
   ngOnInit() {
-    this._comSer.GetComponents().subscribe(data => { this.Components = data.json() });
+    this._comSer.GetComponents().subscribe(data => { this.Components = data.json(); });
   }
 
   deleteComponent(_id: number) {
     this._comSer.DeleteComponent(_id).subscribe(
       () => {}, // TODO: check the response
       () => {},
-      () => { this._comSer.GetComponents().subscribe(data => { this.Components = data.json() }); }
+      () => { this._comSer.GetComponents().subscribe(data => { this.Components = data.json(); }); }
     );
   }
 
@@ -31,6 +31,6 @@ export class ComponentComponent implements OnInit {
         }
       );
     else
-      this._comSer.GetComponents().subscribe(data => { this.Components = data.json() });
+      this._comSer.GetComponents().subscribe(data => { this.Components = data.json(); });
   }
 }

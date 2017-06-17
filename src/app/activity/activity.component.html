@@ -1,0 +1,54 @@
+<app-menu></app-menu>
+
+<div class="uk-container">
+  <div class="uk-box-shadow-small uk-box-shadow-hover-medium uk-margin-medium-bottom uk-card-default">
+    <form class="uk-search uk-search-large uk-width-1-1">
+      <span uk-search-icon></span>
+      <input class="uk-search-input" type="search" placeholder="Search..." (keyup)="onKey($event)">
+    </form>
+  </div>
+
+  <div class="uk-overflow-auto uk-box-shadow-medium uk-padding uk-margin-medium-bottom uk-card-default">
+    <table class="uk-table uk-table-hover uk-table-divider uk-margin-remove">
+      <caption>
+        <h2 class="uk-float-left uk-margin-small-left uk-margin-small-bottom">Activities</h2>
+        <div class="uk-float-right uk-margin-small-right uk-margin-small-bottom">
+          <a routerLink="/activities/add" class="uk-icon-button" uk-icon="icon: plus" title="Add" uk-tooltip></a>
+        </div>
+      </caption>
+
+      <thead>
+        <tr>
+          <th class="uk-table-expand">Title</th>
+          <th class="uk-table-shrink uk-text-nowrap">Work code</th>
+          <th class="uk-table-shrink">Priority</th>
+          <th class="uk-table-shrink">Deadline</th>
+          <th class="uk-table-shrink">Status</th>
+          <th class="uk-table-shrink">Type</th>
+          <th class="uk-table-shrink">Employee</th>
+          <th class="uk-table-shrink">Options</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngIf="Activities.length === 0">
+          <td colspan="8" class="uk-text-center">No data were found!</td>
+        </tr>
+
+        <tr *ngFor="let Act of Activities">
+          <td class="uk-text-truncate uk-text-middle">{{Act.Title}}</td>
+          <td class="uk-text-nowrap uk-text-middle">{{Act.WorkCode}}</td>
+          <td class="uk-text-nowrap uk-text-middle">{{Act.PriorityName}}</td>
+          <td class="uk-text-nowrap uk-text-middle">{{Act.Deadline}}</td>
+          <td class="uk-text-nowrap uk-text-middle">{{Act.StatusName}}</td>
+          <td class="uk-text-nowrap uk-text-middle">{{Act.TypeName}}</td>
+          <td class="uk-text-nowrap uk-text-middle">{{Act.Employee}}</td>
+          <td class="uk-text-nowrap">
+            <a (click)="deleteActivity(Act.Id)" class="uk-icon-button uk-margin-small-right" uk-icon="icon: trash" title="Remove" uk-tooltip></a>
+            <a routerLink="/activities/view/{{Act.Id}}" class="uk-icon-button" uk-icon="icon: list" title="View" uk-tooltip></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
