@@ -1,32 +1,63 @@
-<div class="uk-container uk-container-expand navbar-bg uk-box-shadow-small uk-box-shadow-hover-medium">
-  <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
-
+<div class="uk-container uk-container-expand uk-dark navbarBackground uk-box-shadow-small uk-margin-medium-bottom">
+  <nav class="uk-navbar" uk-navbar>
     <div class="uk-navbar-left">
-      <a routerLink="/dashboard" class="uk-navbar-item uk-logo">LabOrTool</a>
+      <a href="#" class="uk-navbar-toggle" uk-toggle="target: #myOff-Canvas">
+        <span uk-navbar-toggle-icon></span> <span class="uk-margin-small-left">Menu</span>
+      </a>
     </div>
 
     <div class="uk-navbar-right">
       <ul class="uk-navbar-nav">
         <li>
-          <a href="#"><span uk-icon="icon: album"></span><span class="uk-margin-small-left">Inventory</span></a>
+          <a href="#"><img src="../../assets/img/account.png" class="imgProfile uk-border-circle" alt="Profile photo"></a>
           <div class="uk-navbar-dropdown">
             <ul class="uk-nav uk-navbar-dropdown-nav">
-              <li><a routerLink="/inventory/components">Components</a></li>
-              <li><a routerLink="/inventory/manufacturers">Manufacturers</a></li>
-              <li><a routerLink="/inventory/distributors">Distributors</a></li>
-              <li><a routerLink="/inventory/locations">Locations</a></li>
-              <li><a routerLink="/inventory/footprints">Footprints</a></li>
-              <li><a routerLink="/inventory/categories">Categories</a></li>
-              <li><a routerLink="/inventory/categories-param-types">CPTs</a></li>
+              <li><a routerLink="/profile"><span class="uk-margin-small-right" uk-icon="icon: user"></span> Profile</a></li>
+              <li><a routerLink="/settings"><span class="uk-margin-small-right" uk-icon="icon: settings"></span> Settings</a></li>
+              <li><a routerLink="/logout"><span class="uk-margin-small-right" uk-icon="icon: sign-out"></span> Logout</a></li>
             </ul>
           </div>
         </li>
-        <li><a routerLink="/activities"><span uk-icon="icon: future"></span><span class="uk-margin-small-left">Activities</span></a></li>
-        <li><a routerLink="/projects"><span uk-icon="icon: thumbnails"></span><span class="uk-margin-small-left">Projects</span></a></li>
-        <li><a routerLink="/productions"><span uk-icon="icon: clock"></span><span class="uk-margin-small-left">Productions</span></a></li>
-        <li><a routerLink="/profile"><span uk-icon="icon: user"></span><span class="uk-margin-small-left">Account</span></a></li>
       </ul>
     </div>
-
   </nav>
+</div>
+
+<div id="myOff-Canvas" uk-offcanvas="overlay: true">
+  <div class="uk-offcanvas-bar">
+
+    <button class="uk-offcanvas-close" type="button" uk-close></button>
+
+    <a routerLink="/dashboard" class="uk-logo"><img src="../../assets/img/Logo-labortool.png" class="uk-margin-small-top uk-margin-small-bottom" alt="LabOrTool-Logo"></a>
+
+    <ul class="uk-nav uk-nav-default">
+      <li class="uk-nav-header">Menu</li>
+      <li><a routerLink="/dashboard">
+        <span class="uk-margin-small-right" uk-icon="icon: home"></span> Dashboard</a></li>
+      <li><a routerLink="/activities">
+        <span class="uk-icon uk-icon-image uk-margin-small-right activity"></span> Activities</a></li>
+      <li><a routerLink="/productions">
+        <span class="uk-icon uk-icon-image uk-margin-small-right production"></span> Productions</a></li>
+      <li><a routerLink="/projects">
+        <span class="uk-icon uk-icon-image uk-margin-small-right project"></span> Projects</a></li>
+      <li><a routerLink="/notes">
+        <span class="uk-margin-small-right" uk-icon="icon: comments"></span> Notes</a></li>
+
+      <li class="uk-nav-header">Inventory</li>
+      <li><a routerLink="/inventory/components">
+        <span class="uk-icon uk-icon-image uk-margin-small-right component"></span> Components</a></li>
+      <li><a routerLink="/inventory/manufacturers">
+        <span class="uk-icon uk-icon-image uk-margin-small-right manufacturer"></span> Manufacturers</a></li>
+      <li><a routerLink="/inventory/distributors">
+        <span class="uk-icon uk-icon-image uk-margin-small-right distributor"></span> Distributors</a></li>
+      <li><a routerLink="/inventory/categories">
+        <span class="uk-margin-small-right" uk-icon="icon: album"></span> Categories</a></li>
+      <li><a routerLink="/inventory/locations">
+        <span class="uk-margin-small-right" uk-icon="icon: search"></span> Locations</a></li>
+      <li><a routerLink="/inventory/footprints">
+        <span class="uk-margin-small-right" uk-icon="icon: list"></span> Footprints</a></li>
+      <li><a routerLink="/inventory/category-parameter-types">
+        <span class="uk-margin-small-right" uk-icon="icon: thumbnails"></span> CPTs</a></li>
+    </ul>
+  </div>
 </div>

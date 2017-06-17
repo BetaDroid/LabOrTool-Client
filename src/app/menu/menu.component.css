@@ -1,11 +1,60 @@
-.navbar-bg {
-  background-color: #2196F3;
+.imgProfile {
+  height: 50px;
+  width: 50px;
 }
 
-.uk-navbar-left .uk-logo {
-  color: #FFF;
+.uk-offcanvas-bar {
+  background: #263238;
 }
 
-.uk-navbar-nav>li>a {
-  color: #FFF;
+.navbarBackground {
+  background-color: #f5f5f5;
+}
+
+.activity {
+   background-image: url(../../assets/ico/activity.svg);
+}
+
+.activity:hover {
+  background-image: url(../../assets/ico/hover/activity.svg);
+}
+
+.production {
+  background-image: url(../../assets/ico/production.svg);
+}
+
+.production:hover {
+  background-image: url(../../assets/ico/hover/production.svg);
+}
+
+.project {
+  background-image: url(../../assets/ico/project.svg);
+}
+
+.project:hover {
+  background-image: url(../../assets/ico/hover/project.svg);
+}
+
+.component {
+  background-image: url(../../assets/ico/component.svg);
+}
+
+.component:hover {
+  background-image: url(../../assets/ico/hover/component.svg);
+}
+
+.manufacturer {
+  background-image: url(../../assets/ico/manufacturer.svg);
+}
+
+.manufacturer:hover {
+  background-image: url(../../assets/ico/hover/manufacturer.svg);
+}
+
+.distributor {
+  background-image: url(../../assets/ico/distributor.svg);
+}
+
+.distributor:hover {
+  background-image: url(../../assets/ico/hover/distributor.svg);
 }

@@ -1,1 +1,41 @@
 <app-menu></app-menu>
+
+<div class="uk-container">
+  <div class="uk-box-shadow-medium uk-padding uk-margin-medium-bottom uk-card-default">
+    <canvas width="390px" height="auto" baseChart
+            [datasets]="lineChartData"
+            [labels]="lineChartLabels"
+            [options]="lineChartOptions"
+            [colors]="lineChartColors"
+            [legend]="lineChartLegend"
+            [chartType]="lineChartType"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"></canvas>
+  </div>
+
+  <div class="uk-overflow-auto uk-box-shadow-medium uk-padding uk-margin-medium-bottom uk-card-default">
+    <table class="uk-table uk-table-small uk-table-divider uk-margin-remove">
+      <thead>
+      <tr>
+        <th>Task</th>
+        <th>Not ended</th>
+        <th>Ended</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr>
+        <td>Activities</td>
+        <td>Table Data</td>
+        <td>Table Data</td>
+      </tr>
+
+      <tr>
+        <td>Productions</td>
+        <td>Table Data</td>
+        <td>Table Data</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

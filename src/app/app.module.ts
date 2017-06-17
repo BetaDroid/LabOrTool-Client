@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { RouterModule }   from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { DistributorComponent } from './inventory/distributor/distributor.component';
@@ -20,7 +20,7 @@ import { DistributorService } from './inventory/distributor/distributor.service'
 import { AlertService } from './alert/alert.service';
 import { UserComponent } from './user/user.component';
 import { ManufacturerComponent } from './inventory/manufacturer/manufacturer.component';
-import {ManufacturerService} from "./inventory/manufacturer/manufacturer.service";
+import {ManufacturerService} from './inventory/manufacturer/manufacturer.service';
 import { LocationComponent } from './inventory/location/location.component';
 import { FootprintComponent } from './inventory/footprint/footprint.component';
 import { CategoryComponent } from './inventory/category/category.component';
@@ -32,24 +32,25 @@ import { AddManufacturerComponent } from './inventory/manufacturer/add-manufactu
 import { ViewManufacturerComponent } from './inventory/manufacturer/view-manufacturer/view-manufacturer.component';
 import { AddLocationComponent } from './inventory/location/add-location/add-location.component';
 import { ViewLocationComponent } from './inventory/location/view-location/view-location.component';
-import {LocationService} from "./inventory/location/location.service";
-import {FootprintService} from "./inventory/footprint/footprint.service";
+import {LocationService} from './inventory/location/location.service';
+import {FootprintService} from './inventory/footprint/footprint.service';
 import { AddFootprintComponent } from './inventory/footprint/add-footprint/add-footprint.component';
 import { ViewFootprintComponent } from './inventory/footprint/view-footprint/view-footprint.component';
-import {CategoryService} from "./inventory/category/category.service";
+import {CategoryService} from './inventory/category/category.service';
 import { AddCategoryComponent } from './inventory/category/add-category/add-category.component';
 import { ViewCategoryComponent } from './inventory/category/view-category/view-category.component';
 import { AddCategoryParamTypeComponent } from './inventory/category-param-type/add-category-param-type/add-category-param-type.component';
 import { ViewCategoryParamTypeComponent } from './inventory/category-param-type/view-category-param-type/view-category-param-type.component';
-import {CategoryParamTypeService} from "./inventory/category-param-type/category-param-type.service";
-import {UnitService} from "./inventory/unit/unit.service";
-import {PrefixService} from "./inventory/prefix/prefix.service";
+import {CategoryParamTypeService} from './inventory/category-param-type/category-param-type.service';
+import {UnitService} from './inventory/unit/unit.service';
+import {PrefixService} from './inventory/prefix/prefix.service';
 import { AddComponentComponent } from './inventory/component/add-component/add-component.component';
 import { ViewComponentComponent } from './inventory/component/view-component/view-component.component';
-import {ComponentParamService} from "./inventory/component-param/component-param.service";
-import {ComponentService} from "./inventory/component/component.service";
+import {ComponentParamService} from './inventory/component-param/component-param.service';
+import {ComponentService} from './inventory/component/component.service';
 import { AddComponentParamComponent } from './inventory/component-param/add-component-param/add-component-param.component';
 import { ViewComponentParamComponent } from './inventory/component-param/view-component-param/view-component-param.component';
+import {ChartsModule} from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -120,7 +121,8 @@ import { ViewComponentParamComponent } from './inventory/component-param/view-co
       { path: 'inventory/component-params/add/:id', component: AddComponentParamComponent },
       { path: 'inventory/component-params/view/:id', component: ViewComponentParamComponent },
       { path: 'users', component: UserComponent }
-    ])
+    ]),
+    ChartsModule
   ],
   providers: [
     ConnectionService,
