@@ -25,7 +25,7 @@ export class AddComponentParamComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._cptSer.GetCatParamTypes().subscribe(data => { this.CPTs = data.json(); });
+    this._cptSer.GetCPTs().subscribe(data => { this.CPTs = data.json(); });
     this._preSer.GetPrefixes().subscribe(data => { this.Prefixes = data.json(); });
   }
 
@@ -51,7 +51,7 @@ export class AddComponentParamComponent implements OnInit {
     } else
       document.getElementById('prefix').className = "uk-input";
 
-    //console.log(_formData);
+    // console.log(_formData);
 
     if (!error)
       this._cpSer.PostComponentParam(_formData).subscribe(

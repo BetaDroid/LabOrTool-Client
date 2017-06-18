@@ -13,3 +13,11 @@ html {
 html body {
   background: #fafafa !important;
 }
+
+#particles-js .particles-js-canvas-el {
+  background-color: transparent;
+  display: block;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}

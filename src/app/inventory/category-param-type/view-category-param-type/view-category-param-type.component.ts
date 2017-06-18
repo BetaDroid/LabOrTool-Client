@@ -70,7 +70,7 @@ export class ViewCategoryParamTypeComponent implements OnInit {
       document.getElementById('order').className = "uk-input";
 
     if (!error) {
-      this._cptSer.PutCatParamType(this.id, _formData).subscribe(
+      this._cptSer.PutCPT(this.id, _formData).subscribe(
         () => {  }, // TODO: check if the response is true
         () => {},
         () => {
@@ -82,7 +82,7 @@ export class ViewCategoryParamTypeComponent implements OnInit {
   }
 
   deleteCPT(_id: number) {
-    this._cptSer.DeleteCatParamType(_id).subscribe(
+    this._cptSer.DeleteCPT(_id).subscribe(
       () => {}, // TODO: check the response
       () => {},
       () => { this._router.navigate(['/inventory/categories-param-types']); }
@@ -108,7 +108,7 @@ export class ViewCategoryParamTypeComponent implements OnInit {
   }
 
   private getCPT() {
-    this._cptSer.GetCatParamType(this.id).subscribe(data => {
+    this._cptSer.GetCPT(this.id).subscribe(data => {
       this.cptForm = this._formBuilder.group({
         'Id': new FormControl({value: data.json().Id, disabled: true}),
         'Name': new FormControl({value: data.json().Name, disabled: true}),

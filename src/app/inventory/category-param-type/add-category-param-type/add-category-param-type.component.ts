@@ -52,7 +52,7 @@ export class AddCategoryParamTypeComponent implements OnInit {
       document.getElementById('order').className = "uk-input";
 
     if (!error)
-      this._cptSer.PostCatParamType(_formData).subscribe(
+      this._cptSer.PostCPT(_formData).subscribe(
         () => {  }, // TODO: check if the response is true
         () => {},
         () => { this._router.navigate(['/inventory/categories-param-types']); }

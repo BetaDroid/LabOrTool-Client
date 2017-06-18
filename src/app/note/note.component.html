@@ -1,35 +1,48 @@
 <app-menu></app-menu>
 
 <div class="uk-container">
-  <div class="uk-box-shadow-small uk-box-shadow-hover-medium uk-margin-medium-bottom uk-card-default" title="This component is under development" uk-tooltip>
+  <div class="uk-box-shadow-small uk-box-shadow-hover-medium uk-margin-medium-bottom uk-card-default">
     <form class="uk-search uk-search-large uk-width-1-1">
       <span uk-search-icon></span>
-      <input class="uk-search-input" type="search" placeholder="Search..." (keyup)="onKey($event)" disabled>
+      <input class="uk-search-input" type="search" placeholder="Search..." (keyup)="onKey($event)">
     </form>
   </div>
 
-  <ul class="uk-comment-list uk-margin-remove uk-padding uk-box-shadow-small uk-card-default">
-    <li *ngIf="Notes.length === 0">No data were found!</li>
-    <li *ngFor="let Note of Notes">
-      <article class="uk-comment">
-        <header class="uk-comment-header uk-grid-medium uk-flex-middle" uk-grid>
-          <div class="uk-width-auto">
-            <img class="uk-comment-avatar" src="../../assets/img/account.png" width="80" height="80" alt="">
+  <div class="uk-margin-remove uk-padding uk-box-shadow-small uk-card-default">
+    <div class="uk-panel">
+      <h2 class="uk-float-left uk-margin-remove uk-margin-small-left">Notes</h2>
+
+      <div class="uk-float-right uk-margin-remove uk-margin-small-right">
+        <a routerLink="/notes/add" class="uk-icon-button" uk-icon="icon: plus" title="Add" uk-tooltip></a>
+      </div>
+    </div>
+
+    <hr>
+
+    <ul class="uk-comment-list">
+      <li *ngIf="Notes.length === 0">No data were found!</li>
+
+      <li *ngFor="let Note of Notes">
+        <article class="uk-comment">
+          <header class="uk-comment-header uk-grid-medium uk-flex-middle" uk-grid>
+            <div class="uk-width-auto">
+              <img class="uk-comment-avatar" src="../../assets/img/account.png" width="80" height="80" alt="">
+            </div>
+            <div class="uk-width-expand">
+              <h4 class="uk-comment-title uk-margin-remove uk-float-right">{{Note.NoteTypeName}}</h4>
+              <h4 class="uk-comment-title uk-margin-remove"><a class="uk-link-reset" href="#">{{Note.EmployeeCreation}}</a></h4>
+              <ul class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
+                <li>Created on {{Note.DateCreation}}</li>
+                <li *ngIf="Note.EmployeeModification != Note.EmployeeCreation || Note.DateModification != Note.DateCreation">Edited by {{Note.EmployeeModification}} on {{Note.DateModification}}</li>
+                <li><a routerLink="/notes/edit/{{Note.Id}}">Edit</a></li>
+              </ul>
+            </div>
+          </header>
+          <div class="uk-comment-body">
+            <p>{{Note.Body}}</p>
           </div>
-          <div class="uk-width-expand">
-            <h4 class="uk-comment-title uk-margin-remove uk-float-right">{{Note.NoteTypeName}}</h4>
-            <h4 class="uk-comment-title uk-margin-remove"><a class="uk-link-reset" href="#">{{Note.EmployeeCreation}}</a></h4>
-            <ul class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
-              <li>Created on {{Note.DateCreation}}</li>
-              <li *ngIf="Note.EmployeeModification != Note.EmployeeCreation || Note.DateModification != Note.DateCreation">Edited by {{Note.EmployeeModification}} on {{Note.DateModification}}</li>
-              <li><a routerLink="/notes/edit/{{Note.Id}}">Edit</a></li>
-            </ul>
-          </div>
-        </header>
-        <div class="uk-comment-body">
-          <p>{{Note.Body}}</p>
-        </div>
-      </article>
-    </li>
-  </ul>
+        </article>
+      </li>
+    </ul>
+  </div>
 </div>

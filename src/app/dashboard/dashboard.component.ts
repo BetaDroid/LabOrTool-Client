@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+declare var UIkit: any;
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -82,5 +84,11 @@ export class DashboardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    UIkit.notification({
+      message: 'Welcome to your dashboard!',
+      status: 'primary',
+      pos: 'bottom-center',
+      timeout: 5000
+    });
   }
 }

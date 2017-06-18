@@ -1,56 +1,68 @@
 <app-menu></app-menu>
 
-<div class="uk-container uk-margin">
-  <div class="uk-box-shadow-small uk-box-shadow-hover-medium">
+<div class="uk-container">
+  <div class="uk-box-shadow-small uk-box-shadow-hover-medium uk-margin-medium-bottom uk-card-default">
     <form class="uk-search uk-search-large uk-width-1-1">
       <span uk-search-icon></span>
       <input class="uk-search-input" type="search" placeholder="Search..." (keyup)="onKey($event)">
     </form>
   </div>
 
-  <div class="uk-overflow-auto uk-margin uk-box-shadow-small uk-box-shadow-hover-medium">
-    <table class="uk-table uk-table-hover uk-table-middle">
-      <caption class="uk-margin-small-top">
-        <div class="uk-text-center">
-          <h1>Components</h1>
-          <a routerLink="/inventory/components/add" class="uk-icon-button" uk-icon="icon: plus" title="Add" uk-tooltip></a>
+  <div class="uk-overflow-auto uk-box-shadow-medium uk-padding uk-margin-medium-bottom uk-card-default">
+    <table class="uk-table uk-table-hover uk-table-divider uk-margin-remove">
+      <caption>
+        <h2 class="uk-float-left uk-margin-small-left uk-margin-small-bottom">Components</h2>
+        <div class="uk-float-right uk-margin-small-right uk-margin-small-bottom">
+          <div class="uk-inline">
+            <button class="uk-button uk-button-default" type="button"><span uk-icon="icon:  triangle-down"></span>Filter by</button>
+            <div uk-dropdown="mode: click;">
+              <ul class="uk-nav uk-dropdown-nav">
+                <li class="uk-active"><a href="#">Active</a></li>
+                <li><a href="#">Item</a></li>
+                <li class="uk-nav-header">Header</li>
+                <li><a href="#">Item</a></li>
+                <li><a href="#">Item</a></li>
+                <li class="uk-nav-divider"></li>
+                <li><a href="#">Item</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <a routerLink="/inventory/components/add" class="uk-button uk-button-primary"><span uk-icon="icon: plus"></span> Add</a>
         </div>
       </caption>
+
       <thead>
-      <tr>
-        <th class="uk-table-shrink">Name</th>
-        <th class="uk-table-shrink">Manufacturer</th>
-        <th class="uk-table-shrink">Part Number</th>
-        <th class="uk-table-shrink">Distributor Code</th>
-        <th class="uk-table-shrink">Price</th>
-        <th class="uk-table-shrink">Datasheet</th>
-        <th class="uk-table-shrink">Footprint</th>
-        <th class="uk-table-shrink">Category</th>
-        <th class="uk-table-shrink">Options</th>
-      </tr>
+        <tr>
+          <th>Name</th>
+          <th class="uk-table-shrink uk-text-nowrap">Part number</th>
+          <th class="uk-table-shrink">Category</th>
+          <th class="uk-table-shrink">Footprint</th>
+          <th class="uk-table-shrink">Datasheet</th>
+          <th class="uk-table-shrink">Distributor</th>
+          <th class="uk-table-shrink">Price</th>
+          <th class="uk-table-shrink">Options</th>
+        </tr>
       </thead>
+
       <tbody>
-      <tr *ngIf="Components.length === 0">
-        <td colspan="9" class="uk-text-center">No data were found!</td>
-      </tr>
-      <tr *ngFor="let Cmp of Components">
-        <td class="uk-text-nowrap">{{Cmp.Name}}</td>
-        <td class="uk-text-nowrap">{{Cmp.Manufacturer}}</td>
-        <td class="uk-text-nowrap">{{Cmp.PartNumber}}</td>
-        <td class="uk-text-nowrap">{{Cmp.DistributorCode}}</td>
-        <td class="uk-text-nowrap">{{Cmp.Price}}</td>
-        <td class="uk-table-link">
-          <a class="uk-link-reset" href="{{Cmp.Datasheet}}" uk-icon="icon: link"></a>
-        </td>
-        <td class="uk-table-link">
-          <a class="uk-link-reset" href="{{Cmp.FootprintLink}}">{{Cmp.Footprint}}</a>
-        </td>
-        <td class="uk-text-nowrap">{{Cmp.Category}}</td>
-        <td class="uk-text-nowrap">
-          <a (click)="deleteComponent(Cmp.Id)" class="uk-icon-button uk-margin-small-right" uk-icon="icon: trash" title="Remove" uk-tooltip></a>
-          <a routerLink="/inventory/components/view/{{Cmp.Id}}" class="uk-icon-button" uk-icon="icon: list" title="View" uk-tooltip></a>
-        </td>
-      </tr>
+        <tr *ngIf="Components.length === 0">
+          <td colspan="8" class="uk-text-center">No data were found!</td>
+        </tr>
+
+        <tr *ngFor="let Com of Components">
+          <td class="uk-text-truncate uk-text-middle">{{Com.Name}}</td>
+          <td class="uk-text-nowrap uk-text-middle">{{Com.PartNumber}}</td>
+          <td class="uk-text-nowrap uk-text-middle">{{Com.CategoryName}}</td>
+          <td class="uk-text-nowrap uk-text-middle uk-table-link"><a href="{{Com.FootprintLink}}" class="uk-link-reset">{{Com.FootprintName}}</a></td>
+          <td class="uk-text-nowrap uk-text-middle"><a href="{{Com.Datasheet}}" class="uk-icon-button" uk-icon="icon: forward" title="Link" uk-tooltip></a></td>
+          <td class="uk-text-nowrap uk-text-middle">{{Com.DistributorCode}}</td>
+          <td class="uk-text-nowrap uk-text-middle">{{Com.Price}}&euro;</td>
+          <td class="uk-text-nowrap">
+            <a (click)="deleteComponent(Com.Id)" class="uk-icon-button uk-margin-small-right" uk-icon="icon: trash" title="Remove" uk-tooltip></a>
+            <a routerLink="/inventory/components/view/{{Com.Id}}" class="uk-icon-button" uk-icon="icon: list" title="View" uk-tooltip></a>
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>

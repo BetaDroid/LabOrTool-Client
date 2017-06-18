@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html >
   <head>
     <base href="/">
     <meta charset="utf-8">
@@ -12,12 +12,20 @@
     <link href="assets/css/styles.css" rel="stylesheet" type="text/css">
   </head>
 
-  <body>
+  <body id="particles-js">
     <app-root>Loading...</app-root>
 
     <script src="assets/js/jquery-3.2.0.min.js" type="application/javascript"></script>
     <script src="assets/uikit-3.0.0-beta.25/js/uikit.min.js" type="application/javascript"></script>
     <script src="assets/uikit-3.0.0-beta.25/js/uikit-icons.min.js" type="application/javascript"></script>
     <script src="assets/chart.js/Chart.bundle.min.js" type="application/javascript"></script>
+
+    <!-- particles.js -->
+    <script src="assets/particles.js/particles.min.js" type="application/javascript"></script>
+    <script type="application/javascript">
+      $(document).ready(function () {
+        particlesJS.load('particles-js', 'assets/js/particlesjs-config.json');
+      });
+    </script>
   </body>
 </html>

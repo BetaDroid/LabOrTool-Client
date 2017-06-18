@@ -154,9 +154,9 @@ import {ProjectService} from "./project/project.service";
       { path: 'inventory/categories', component: CategoryComponent },
       { path: 'inventory/categories/add', component: AddCategoryComponent },
       { path: 'inventory/categories/view/:id', component: ViewCategoryComponent },
-      { path: 'inventory/categories-param-types', component: CategoryParamTypeComponent },
-      { path: 'inventory/categories-param-types/add', component: AddCategoryParamTypeComponent },
-      { path: 'inventory/categories-param-types/view/:id', component: ViewCategoryParamTypeComponent },
+      { path: 'inventory/category-parameter-types', component: CategoryParamTypeComponent },
+      { path: 'inventory/category-parameter-types/add', component: AddCategoryParamTypeComponent },
+      { path: 'inventory/category-parameter-types/view/:id', component: ViewCategoryParamTypeComponent },
       { path: 'inventory/component-params/add/:id', component: AddComponentParamComponent },
       { path: 'inventory/component-params/view/:id', component: ViewComponentParamComponent },
       { path: 'users', component: UserComponent }

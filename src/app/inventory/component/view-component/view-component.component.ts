@@ -59,7 +59,7 @@ export class ViewComponentComponent implements OnInit {
   ngOnInit() {
     this.getComponent();
 
-    this._cptSer.GetCatParamTypes().subscribe(data => {
+    this._cptSer.GetCPTs().subscribe(data => {
       this.CPTs = data.json();
     });
     this._preSer.GetPrefixes().subscribe(data => {

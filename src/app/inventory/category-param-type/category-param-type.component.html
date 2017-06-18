@@ -1,45 +1,39 @@
 <app-menu></app-menu>
 
-<div class="uk-container uk-margin">
-  <div class="uk-box-shadow-small uk-box-shadow-hover-medium">
+<div class="uk-container">
+  <div class="uk-box-shadow-small uk-box-shadow-hover-medium uk-margin-medium-bottom uk-card-default">
     <form class="uk-search uk-search-large uk-width-1-1">
       <span uk-search-icon></span>
       <input class="uk-search-input" type="search" placeholder="Search..." (keyup)="onKey($event)">
     </form>
   </div>
 
-  <div class="uk-overflow-auto uk-margin uk-box-shadow-small uk-box-shadow-hover-medium">
-    <table class="uk-table uk-table-hover uk-table-middle">
-      <caption class="uk-margin-small-top">
-        <div class="uk-text-center">
-          <h1>Categories parameter types</h1>
-          <a routerLink="/inventory/categories-param-types/add" class="uk-icon-button" uk-icon="icon: plus" title="Add" uk-tooltip></a>
+  <div class="uk-margin-remove uk-padding uk-box-shadow-small uk-card-default">
+    <div class="uk-panel">
+      <h2 class="uk-float-left uk-margin-remove uk-margin-small-left">Category parameter types</h2>
+
+      <div class="uk-float-right uk-margin-remove uk-margin-small-right">
+        <a routerLink="/inventory/category-parameter-types/add" class="uk-icon-button" uk-icon="icon: plus" title="Add" uk-tooltip></a>
+      </div>
+    </div>
+
+    <hr>
+
+    <ul uk-accordion>
+      <li *ngIf="CPTs.length === 0">No data were found!</li>
+
+      <li *ngFor="let Cpt of CPTs">
+        <h3 class="uk-accordion-title">{{Cpt.Name}}</h3>
+
+        <div class="uk-accordion-content">
+          <p>Category: {{Cpt.CategoryName}}</p>
+          <p>Unit: {{Cpt.UnitName}} ({{Cpt.UnitShortName}})</p>
+
+          <div class="uk-float-right uk-margin-remove uk-margin-small-right">
+            <a (click)="deleteCPT(Cpt.Id)"><span class="uk-label uk-label-danger">Delete</span></a>
+          </div>
         </div>
-      </caption>
-      <thead>
-      <tr>
-        <th class="uk-table-expand">Name</th>
-        <th class="uk-table-shrink uk-text-nowrap">Category</th>
-        <th class="uk-table-shrink uk-text-nowrap">Unit</th>
-        <th class="uk-table-shrink uk-text-nowrap">Order</th>
-        <th class="uk-text-nowrap uk-text-nowrap">Options</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngIf="CPTs.length === 0">
-        <td colspan="5" class="uk-text-center">No data were found!</td>
-      </tr>
-      <tr *ngFor="let Cpt of CPTs">
-        <td class="uk-text-nowrap">{{Cpt.Name}}</td>
-        <td class="uk-text-nowrap">{{Cpt.CategoryName}}</td>
-        <td class="uk-text-nowrap">{{Cpt.UnitName}}</td>
-        <td class="uk-text-nowrap">{{Cpt.Order}}</td>
-        <td class="uk-text-nowrap">
-          <a (click)="deleteCPT(Cpt.Id)" class="uk-icon-button uk-margin-small-right" uk-icon="icon: trash" title="Remove" uk-tooltip></a>
-          <a routerLink="/inventory/categories-param-types/view/{{Cpt.Id}}" class="uk-icon-button" uk-icon="icon: list" title="View" uk-tooltip></a>
-        </td>
-      </tr>
-      </tbody>
-    </table>
+      </li>
+    </ul>
   </div>
 </div>
