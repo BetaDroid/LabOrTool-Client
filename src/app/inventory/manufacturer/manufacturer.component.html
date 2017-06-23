@@ -30,6 +30,7 @@
 
           <div class="uk-float-right uk-margin-remove uk-margin-small-right">
             <a (click)="deleteManufacturer(Man.Id)"><span class="uk-label uk-label-danger">Delete</span></a>
+            <a routerLink="/inventory/manufacturers/view/{{Man.Id}}"><span class="uk-label uk-label-success">Edit</span></a>
           </div>
         </div>
       </li>

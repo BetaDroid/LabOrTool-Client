@@ -15,8 +15,8 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  private onSubmit(_formData: any) {
-    let error = false;
+  onSubmit(_formData: any) {
+    let error = false; let res = {};
 
     if (_formData.username === "") {
       document.getElementById('username').className += " uk-form-danger";
@@ -31,12 +31,14 @@ export class LoginComponent implements OnInit {
       document.getElementById('password').className = "uk-input";
 
     if (!error) {
-      if (this._loginSer.makeLogin(_formData.username, _formData.password))
-        this._router.navigate(['/dashboard']);
-      else {
-        console.log('error');
-        // TODO: error message
-      }
+      let body;
+      this._loginSer.makeLogin(_formData.username, _formData.password).subscribe(data => {
+        body = data;
+      }, () => {}, () => {
+        if (body) {
+          this._router.navigate(['/dashboard']);
+        }
+      });
     }
   }
 }

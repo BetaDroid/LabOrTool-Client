@@ -66,6 +66,7 @@ import { ViewProjectComponent } from './project/view-project/view-project.compon
 import {ActivityService} from "./activity/activity.service";
 import {ProductionService} from "./production/production.service";
 import {ProjectService} from "./project/project.service";
+import {LoginGuard} from "./login/login.guard";
 
 @NgModule({
   declarations: [
@@ -123,7 +124,7 @@ import {ProjectService} from "./project/project.service";
       { path: 'login', component: LoginComponent },
       { path: 'logout', component: LogoutComponent },
       { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-      { path: 'dashboard', component: DashboardComponent },
+      { path: 'dashboard', component: DashboardComponent, canActivate: [LoginGuard] },
       { path: 'activities', component: ActivityComponent },
       { path: 'activities/add', component: AddActivityComponent },
       { path: 'activities/view/:id', component: ViewActivityComponent },
@@ -179,7 +180,8 @@ import {ProjectService} from "./project/project.service";
     ComponentService,
     ActivityService,
     ProductionService,
-    ProjectService
+    ProjectService,
+    LoginGuard
   ],
   bootstrap: [AppComponent]
 })

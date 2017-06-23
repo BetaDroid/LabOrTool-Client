@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { ConnectionService } from '../../connection.service';
-import {LoginService} from "../../login/login.service";
 
 @Injectable()
 export class UnitService {
@@ -10,12 +9,10 @@ export class UnitService {
   private options: RequestOptions;
 
   constructor(private _http: Http,
-              private _host: ConnectionService,
-              private _loginSer: LoginService) {
+              private _host: ConnectionService) {
     this.headers = new Headers();
     this.headers.append('Content-Type', 'application/json');
     this.headers.append('Accept', 'application/json');
-    //this.headers.append('Authorization', "Basic " + btoa(this._loginSer.token + ":"));
 
     this.options = new RequestOptions({ headers: this.headers });
   }
