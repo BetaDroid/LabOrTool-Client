@@ -1,117 +1,115 @@
 <app-menu></app-menu>
 
-<div class="uk-container uk-margin">
-  <div class="uk-padding uk-box-shadow-small">
-    <form #disForm="ngForm">
-      <fieldset class="uk-fieldset">
+<div class="uk-container uk-padding uk-section-default uk-box-shadow-small">
+  <form #disForm="ngForm">
+    <fieldset class="uk-fieldset">
 
-        <legend class="uk-legend">Add new component</legend>
+      <legend class="uk-legend">Add new component</legend>
 
-        <div class="uk-margin">
-          <label class="uk-form-label" for="name">Name</label>
-          <div class="uk-form-controls">
-            <input class="uk-input" id="name" type="text" placeholder="Insert the name" name="Name" ngModel>
-          </div>
+      <div class="uk-margin">
+        <label class="uk-form-label" for="name">Name</label>
+        <div class="uk-form-controls">
+          <input class="uk-input" id="name" type="text" placeholder="Insert the name" name="Name" ngModel>
         </div>
+      </div>
 
-        <div class="uk-margin">
-          <label class="uk-form-label" for="manufacturer">Manufacturer</label>
-          <div class="uk-form-controls">
-            <select class="uk-select" id="manufacturer" name="ManufacturerId" ngModel>
-              <option></option>
-              <option *ngFor="let Man of Manufacturers" value="{{Man.Id}}">{{Man.Name}}</option>
-            </select>
-          </div>
+      <div class="uk-margin">
+        <label class="uk-form-label" for="manufacturer">Manufacturer</label>
+        <div class="uk-form-controls">
+          <select class="uk-select" id="manufacturer" name="ManufacturerId" ngModel>
+            <option></option>
+            <option *ngFor="let Man of Manufacturers" value="{{Man.Id}}">{{Man.Name}}</option>
+          </select>
         </div>
+      </div>
 
-        <div class="uk-margin">
-          <label class="uk-form-label" for="partnumber">Partnumber</label>
-          <div class="uk-form-controls">
-            <input class="uk-input" id="partnumber" type="text" placeholder="Insert the partnumber" name="PartNumber" ngModel>
-          </div>
+      <div class="uk-margin">
+        <label class="uk-form-label" for="partnumber">Partnumber</label>
+        <div class="uk-form-controls">
+          <input class="uk-input" id="partnumber" type="text" placeholder="Insert the partnumber" name="PartNumber" ngModel>
         </div>
+      </div>
 
-        <div class="uk-margin">
-          <label class="uk-form-label" for="distributor">Distributor</label>
-          <div class="uk-form-controls">
-            <select class="uk-select" id="distributor" name="DistributorId" ngModel>
-              <option></option>
-              <option *ngFor="let Dis of Distributors" value="{{Dis.Id}}">{{Dis.Name}}</option>
-            </select>
-          </div>
+      <div class="uk-margin">
+        <label class="uk-form-label" for="distributor">Distributor</label>
+        <div class="uk-form-controls">
+          <select class="uk-select" id="distributor" name="DistributorId" ngModel>
+            <option></option>
+            <option *ngFor="let Dis of Distributors" value="{{Dis.Id}}">{{Dis.Name}}</option>
+          </select>
         </div>
+      </div>
 
-        <div class="uk-margin">
-          <label class="uk-form-label" for="dc">Distributor code</label>
-          <div class="uk-form-controls">
-            <input class="uk-input" id="dc" type="text" placeholder="Insert the distributor code" name="DistributorCode" ngModel>
-          </div>
+      <div class="uk-margin">
+        <label class="uk-form-label" for="dc">Distributor code</label>
+        <div class="uk-form-controls">
+          <input class="uk-input" id="dc" type="text" placeholder="Insert the distributor code" name="DistributorCode" ngModel>
         </div>
+      </div>
 
-        <div class="uk-margin">
-          <label class="uk-form-label" for="price">Price</label>
-          <div class="uk-form-controls">
-            <input class="uk-input" id="price" type="text" placeholder="Insert the price" name="Price" ngModel>
-          </div>
+      <div class="uk-margin">
+        <label class="uk-form-label" for="price">Price</label>
+        <div class="uk-form-controls">
+          <input class="uk-input" id="price" type="text" placeholder="Insert the price" name="Price" ngModel>
         </div>
+      </div>
 
-        <div class="uk-margin">
-          <label class="uk-form-label" for="code">Code</label>
-          <div class="uk-form-controls">
-            <input class="uk-input" id="code" type="text" placeholder="Insert the code" name="Code" ngModel>
-          </div>
+      <div class="uk-margin">
+        <label class="uk-form-label" for="code">Code</label>
+        <div class="uk-form-controls">
+          <input class="uk-input" id="code" type="text" placeholder="Insert the code" name="Code" ngModel>
         </div>
+      </div>
 
-        <div class="uk-margin">
-          <label class="uk-form-label" for="location">Location</label>
-          <div class="uk-form-controls">
-            <select class="uk-select" id="location" name="LocationId" ngModel>
-              <option></option>
-              <option *ngFor="let Loc of Locations" value="{{Loc.Id}}">{{Loc.Position}} - {{Loc.Container}} - {{Loc.SubContainer}}</option>
-            </select>
-          </div>
+      <div class="uk-margin">
+        <label class="uk-form-label" for="location">Location</label>
+        <div class="uk-form-controls">
+          <select class="uk-select" id="location" name="LocationId" ngModel>
+            <option></option>
+            <option *ngFor="let Loc of Locations" value="{{Loc.Id}}">{{Loc.Position}} - {{Loc.Container}} - {{Loc.SubContainer}}</option>
+          </select>
         </div>
+      </div>
 
-        <div class="uk-margin">
-          <label class="uk-form-label" for="datasheet">Datasheet</label>
-          <div class="uk-form-controls">
-            <input class="uk-input" id="datasheet" type="text" placeholder="Insert the datasheet link" name="Datasheet" ngModel>
-          </div>
+      <div class="uk-margin">
+        <label class="uk-form-label" for="datasheet">Datasheet</label>
+        <div class="uk-form-controls">
+          <input class="uk-input" id="datasheet" type="text" placeholder="Insert the datasheet link" name="Datasheet" ngModel>
         </div>
+      </div>
 
-        <div class="uk-margin">
-          <label class="uk-form-label" for="footprint">Footprint</label>
-          <div class="uk-form-controls">
-            <select class="uk-select" id="footprint" name="FootprintId" ngModel>
-              <option></option>
-              <option *ngFor="let Foo of Footprints" value="{{Foo.Id}}">{{Foo.Name}}</option>
-            </select>
-          </div>
+      <div class="uk-margin">
+        <label class="uk-form-label" for="footprint">Footprint</label>
+        <div class="uk-form-controls">
+          <select class="uk-select" id="footprint" name="FootprintId" ngModel>
+            <option></option>
+            <option *ngFor="let Foo of Footprints" value="{{Foo.Id}}">{{Foo.Name}}</option>
+          </select>
         </div>
+      </div>
 
-        <div class="uk-margin">
-          <label class="uk-form-label" for="category">Category</label>
-          <div class="uk-form-controls">
-            <select class="uk-select" id="category" name="CategoryId" ngModel>
-              <option></option>
-              <option *ngFor="let Cat of Categories" value="{{Cat.Id}}">{{Cat.Name}}</option>
-            </select>
-          </div>
+      <div class="uk-margin">
+        <label class="uk-form-label" for="category">Category</label>
+        <div class="uk-form-controls">
+          <select class="uk-select" id="category" name="CategoryId" ngModel>
+            <option></option>
+            <option *ngFor="let Cat of Categories" value="{{Cat.Id}}">{{Cat.Name}}</option>
+          </select>
         </div>
+      </div>
 
-        <div class="uk-margin">
-          <label class="uk-form-label" for="note">Note</label>
-          <div class="uk-form-controls">
-            <textarea class="uk-textarea uk-resize-vertical" id="note" rows="5" placeholder="Insert the note" name="Note" ngModel></textarea>
-          </div>
+      <div class="uk-margin">
+        <label class="uk-form-label" for="note">Note</label>
+        <div class="uk-form-controls">
+          <textarea class="uk-textarea uk-resize-vertical" id="note" rows="5" placeholder="Insert the note" name="Note" ngModel></textarea>
         </div>
+      </div>
 
-        <div class="uk-margin">
-          <a routerLink="/inventory/components" class="uk-float-left uk-icon-button" uk-icon="icon: arrow-left" title="Back" uk-tooltip></a>
-          <a (click)="onSubmit(disForm.value)" class="uk-float-right uk-icon-button" uk-icon="icon: plus" title="Add" uk-tooltip></a>
-        </div>
+      <div class="uk-margin">
+        <a routerLink="/inventory/components" class="uk-float-left uk-icon-button" uk-icon="icon: arrow-left" title="Back" uk-tooltip></a>
+        <a (click)="onSubmit(disForm.value)" class="uk-float-right uk-icon-button" uk-icon="icon: plus" title="Add" uk-tooltip></a>
+      </div>
 
-      </fieldset>
-    </form>
-  </div>
+    </fieldset>
+  </form>
 </div>

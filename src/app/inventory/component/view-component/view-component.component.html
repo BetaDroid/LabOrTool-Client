@@ -1,114 +1,113 @@
 <app-menu></app-menu>
 
-<div class="uk-container uk-margin">
-  <div class="uk-padding uk-box-shadow-small">
-    <form [formGroup]="cmpForm">
-      <fieldset class="uk-fieldset">
+<div class="uk-container uk-padding uk-section-default uk-box-shadow-small">
+  <form [formGroup]="cmpForm">
+    <fieldset class="uk-fieldset">
 
-        <legend class="uk-legend">View component</legend>
+      <legend class="uk-legend">View component</legend>
 
-        <div class="uk-margin">
-          <label class="uk-form-label" for="id">Id</label>
-          <div class="uk-form-controls">
-            <input class="uk-input" id="id" type="text" [formControl]="cmpForm.controls['Id']">
-          </div>
+      <div class="uk-margin">
+        <label class="uk-form-label" for="id">Id</label>
+        <div class="uk-form-controls">
+          <input class="uk-input" id="id" type="text" [formControl]="cmpForm.controls['Id']">
         </div>
+      </div>
 
-        <div class="uk-margin">
-          <label class="uk-form-label" for="name">Name</label>
-          <div class="uk-form-controls">
-            <input class="uk-input" id="name" type="text" [formControl]="cmpForm.controls['Name']">
-          </div>
+      <div class="uk-margin">
+        <label class="uk-form-label" for="name">Name</label>
+        <div class="uk-form-controls">
+          <input class="uk-input" id="name" type="text" [formControl]="cmpForm.controls['Name']">
         </div>
+      </div>
 
-        <div class="uk-margin">
-          <label class="uk-form-label" for="manufacturer">Manufacturer</label>
-          <div class="uk-form-controls">
-            <select class="uk-select" id="manufacturer" [formControl]="cmpForm.controls['ManufacturerId']">
-              <option></option>
-              <option *ngFor="let Man of Manufacturers" value="{{Man.Id}}">{{Man.Name}}</option>
-            </select>
-          </div>
+      <div class="uk-margin">
+        <label class="uk-form-label" for="manufacturer">Manufacturer</label>
+        <div class="uk-form-controls">
+          <select class="uk-select" id="manufacturer" [formControl]="cmpForm.controls['ManufacturerId']">
+            <option></option>
+            <option *ngFor="let Man of Manufacturers" value="{{Man.Id}}">{{Man.Name}}</option>
+          </select>
         </div>
+      </div>
 
-        <div class="uk-margin">
-          <label class="uk-form-label" for="partnumber">Part number</label>
-          <div class="uk-form-controls">
-            <input class="uk-input" id="partnumber" type="text" [formControl]="cmpForm.controls['PartNumber']">
-          </div>
+      <div class="uk-margin">
+        <label class="uk-form-label" for="partnumber">Part number</label>
+        <div class="uk-form-controls">
+          <input class="uk-input" id="partnumber" type="text" [formControl]="cmpForm.controls['PartNumber']">
         </div>
+      </div>
 
-        <div class="uk-margin">
-          <label class="uk-form-label" for="distributor">Distributor</label>
-          <div class="uk-form-controls">
-            <select class="uk-select" id="distributor" [formControl]="cmpForm.controls['DistributorId']">
-              <option></option>
-              <option *ngFor="let Dis of Distributors" value="{{Dis.Id}}">{{Dis.Name}}</option>
-            </select>
-          </div>
+      <div class="uk-margin">
+        <label class="uk-form-label" for="distributor">Distributor</label>
+        <div class="uk-form-controls">
+          <select class="uk-select" id="distributor" [formControl]="cmpForm.controls['DistributorId']">
+            <option></option>
+            <option *ngFor="let Dis of Distributors" value="{{Dis.Id}}">{{Dis.Name}}</option>
+          </select>
         </div>
+      </div>
 
-        <div class="uk-margin">
-          <label class="uk-form-label" for="dc">Distributor code</label>
-          <div class="uk-form-controls">
-            <input class="uk-input" id="dc" type="text" [formControl]="cmpForm.controls['DistributorCode']">
-          </div>
+      <div class="uk-margin">
+        <label class="uk-form-label" for="dc">Distributor code</label>
+        <div class="uk-form-controls">
+          <input class="uk-input" id="dc" type="text" [formControl]="cmpForm.controls['DistributorCode']">
         </div>
+      </div>
 
-        <div class="uk-margin">
-          <label class="uk-form-label" for="price">Price</label>
-          <div class="uk-form-controls">
-            <input class="uk-input" id="price" type="text" [formControl]="cmpForm.controls['Price']">
-          </div>
+      <div class="uk-margin">
+        <label class="uk-form-label" for="price">Price</label>
+        <div class="uk-form-controls">
+          <input class="uk-input" id="price" type="text" [formControl]="cmpForm.controls['Price']">
         </div>
+      </div>
 
-        <div class="uk-margin">
-          <label class="uk-form-label" for="code">Code</label>
-          <div class="uk-form-controls">
-            <input class="uk-input" id="code" type="text" [formControl]="cmpForm.controls['Code']">
-          </div>
+      <div class="uk-margin">
+        <label class="uk-form-label" for="code">Code</label>
+        <div class="uk-form-controls">
+          <input class="uk-input" id="code" type="text" [formControl]="cmpForm.controls['Code']">
         </div>
+      </div>
 
-        <div class="uk-margin">
-          <label class="uk-form-label" for="location">Location</label>
-          <div class="uk-form-controls">
-            <select class="uk-select" id="location" [formControl]="cmpForm.controls['LocationId']">
-              <option></option>
-              <option *ngFor="let Loc of Locations" value="{{Loc.Id}}">{{Loc.Position}} - {{Loc.Container}} - {{Loc.SubContainer}}</option>
-            </select>
-          </div>
+      <div class="uk-margin">
+        <label class="uk-form-label" for="location">Location</label>
+        <div class="uk-form-controls">
+          <select class="uk-select" id="location" [formControl]="cmpForm.controls['LocationId']">
+            <option></option>
+            <option *ngFor="let Loc of Locations" value="{{Loc.Id}}">{{Loc.Position}} - {{Loc.Container}} - {{Loc.SubContainer}}</option>
+          </select>
         </div>
+      </div>
 
-        <div class="uk-margin">
-          <label class="uk-form-label" for="datasheet">Datasheet</label>
-          <div class="uk-form-controls">
-            <input class="uk-input" id="datasheet" type="text" [formControl]="cmpForm.controls['Datasheet']">
-          </div>
+      <div class="uk-margin">
+        <label class="uk-form-label" for="datasheet">Datasheet</label>
+        <div class="uk-form-controls">
+          <input class="uk-input" id="datasheet" type="text" [formControl]="cmpForm.controls['Datasheet']">
         </div>
+      </div>
 
-        <div class="uk-margin">
-          <label class="uk-form-label" for="footprint">Footprint</label>
-          <div class="uk-form-controls">
-            <select class="uk-select" id="footprint" [formControl]="cmpForm.controls['FootprintId']">
-              <option></option>
-              <option *ngFor="let Foo of Footprints" value="{{Foo.Id}}">{{Foo.Name}}</option>
-            </select>
-          </div>
+      <div class="uk-margin">
+        <label class="uk-form-label" for="footprint">Footprint</label>
+        <div class="uk-form-controls">
+          <select class="uk-select" id="footprint" [formControl]="cmpForm.controls['FootprintId']">
+            <option></option>
+            <option *ngFor="let Foo of Footprints" value="{{Foo.Id}}">{{Foo.Name}}</option>
+          </select>
         </div>
+      </div>
 
-        <div class="uk-margin">
-          <label class="uk-form-label" for="category">Category</label>
-          <div class="uk-form-controls">
-            <select class="uk-select" id="category" [formControl]="cmpForm.controls['CategoryId']">
-              <option></option>
-              <option *ngFor="let Cat of Categories" value="{{Cat.Id}}">{{Cat.Name}}</option>
-            </select>
-          </div>
+      <div class="uk-margin">
+        <label class="uk-form-label" for="category">Category</label>
+        <div class="uk-form-controls">
+          <select class="uk-select" id="category" [formControl]="cmpForm.controls['CategoryId']">
+            <option></option>
+            <option *ngFor="let Cat of Categories" value="{{Cat.Id}}">{{Cat.Name}}</option>
+          </select>
         </div>
+      </div>
 
-        <div class="uk-margin">
-          <label class="uk-form-label" for="note">Note</label>
-          <div class="uk-form-controls">
+      <div class="uk-margin">
+        <label class="uk-form-label" for="note">Note</label>
+        <div class="uk-form-controls">
             <textarea
               class="uk-textarea uk-resize-vertical"
               id="note"
@@ -117,54 +116,53 @@
               name="Note"
               [formControl]="cmpForm.controls['Note']"
             ></textarea>
+        </div>
+      </div>
+
+      <h3>Component parameters</h3>
+      <div *ngIf="cpsForms.length == 0">No data were found</div>
+      <form *ngFor="let cpForm of cpsForms" [formGroup]="cpForm">
+        <div class="uk-margin">
+          <label class="uk-form-label" for="cpCTP{{cpForm.CTPName}}">Category parameter type</label>
+          <div class="uk-form-controls">
+            <input class="uk-input" id="cpCTP{{cpForm.CTPName}}" type="text" [formControl]="cpForm.controls['CPTName']">
           </div>
         </div>
 
-        <h3>Component parameters</h3>
-        <div *ngIf="cpsForms.length == 0">No data were found</div>
-        <form *ngFor="let cpForm of cpsForms" [formGroup]="cpForm">
-          <div class="uk-margin">
-            <label class="uk-form-label" for="cpCTP{{cpForm.CTP}}">Category parameter type</label>
-            <div class="uk-form-controls">
-              <input class="uk-input" id="cpCTP{{cpForm.CTP}}" type="text" [formControl]="cpForm.controls['CPT']">
-            </div>
+        <div class="uk-margin">
+          <label class="uk-form-label" for="cpValue{{cpForm.Value}}">Value</label>
+          <div class="uk-form-controls">
+            <input class="uk-input" id="cpValue{{cpForm.Value}}" type="text" [formControl]="cpForm.controls['Value']">
           </div>
-
-          <div class="uk-margin">
-            <label class="uk-form-label" for="cpValue{{cpForm.Value}}">Value</label>
-            <div class="uk-form-controls">
-              <input class="uk-input" id="cpValue{{cpForm.Value}}" type="text" [formControl]="cpForm.controls['Value']">
-            </div>
-          </div>
-
-          <div class="uk-margin">
-            <label class="uk-form-label" for="cpPrefix{{cpForm.Prefix}}">Prefix</label>
-            <div class="uk-form-controls">
-              <input class="uk-input" id="cpPrefix{{cpForm.Prefix}}" type="text" [formControl]="cpForm.controls['Prefix']">
-            </div>
-          </div>
-
-          <div class="uk-margin uk-clearfix">
-            <a routerLink="/inventory/component-params/view/{{cpForm.value.Id}}" class="uk-icon-button uk-float-right" uk-icon="icon: list" title="View parameter" uk-tooltip></a>
-            <a (click)="deleteComponentParam(cpForm.value.Id)" class="uk-icon-button uk-margin-small-right uk-float-right" uk-icon="icon: trash" title="Delete parameter" uk-tooltip></a>
-          </div>
-
-          <hr class="uk-divider-icon">
-        </form>
-
-        <div *ngIf="!editable" class="uk-margin">
-          <a routerLink="/inventory/components" class="uk-float-left uk-icon-button" uk-icon="icon: arrow-left" title="Back" uk-tooltip></a>
-          <a (click)="EnableEdit()" class="uk-float-right uk-icon-button" uk-icon="icon: file-edit" title="Edit component" uk-tooltip></a>
-          <a (click)="deleteComponent(cmpForm.value.Id)" class="uk-float-right uk-icon-button uk-margin-small-right" uk-icon="icon: trash" title="Delete component" uk-tooltip></a>
-          <a routerLink="/inventory/component-params/add/{{cmpForm.value.Id}}" class="uk-float-right uk-icon-button uk-margin-small-right" uk-icon="icon: plus" title="Add new parameter" uk-tooltip></a>
         </div>
 
-        <div *ngIf="editable" class="uk-margin">
-          <a (click)="DisableEdit()" class="uk-float-left uk-icon-button" uk-icon="icon: close" title="Cancel" uk-tooltip></a>
-          <a (click)="onSubmit(cmpForm.value)" class="uk-float-right uk-icon-button" uk-icon="icon: check" title="Save component" uk-tooltip></a>
+        <div class="uk-margin">
+          <label class="uk-form-label" for="cpPrefix{{cpForm.PrefixName}}">Prefix</label>
+          <div class="uk-form-controls">
+            <input class="uk-input" id="cpPrefix{{cpForm.PrefixName}}" type="text" [formControl]="cpForm.controls['PrefixName']">
+          </div>
         </div>
 
-      </fieldset>
-    </form>
-  </div>
+        <div class="uk-margin uk-clearfix">
+          <a routerLink="/inventory/component-params/view/{{cpForm.value.Id}}" class="uk-icon-button uk-float-right" uk-icon="icon: list" title="View parameter" uk-tooltip></a>
+          <a (click)="deleteComponentParam(cpForm.value.Id)" class="uk-icon-button uk-margin-small-right uk-float-right" uk-icon="icon: trash" title="Delete parameter" uk-tooltip></a>
+        </div>
+
+        <hr class="uk-divider-icon">
+      </form>
+
+      <div *ngIf="!editable" class="uk-margin">
+        <a routerLink="/inventory/components" class="uk-float-left uk-icon-button" uk-icon="icon: arrow-left" title="Back" uk-tooltip></a>
+        <a (click)="EnableEdit()" class="uk-float-right uk-icon-button" uk-icon="icon: file-edit" title="Edit component" uk-tooltip></a>
+        <a (click)="deleteComponent(cmpForm.value.Id)" class="uk-float-right uk-icon-button uk-margin-small-right" uk-icon="icon: trash" title="Delete component" uk-tooltip></a>
+        <a routerLink="/inventory/component-params/add/{{cmpForm.value.Id}}" class="uk-float-right uk-icon-button uk-margin-small-right" uk-icon="icon: plus" title="Add new parameter" uk-tooltip></a>
+      </div>
+
+      <div *ngIf="editable" class="uk-margin">
+        <a (click)="DisableEdit()" class="uk-float-left uk-icon-button" uk-icon="icon: close" title="Cancel" uk-tooltip></a>
+        <a (click)="onSubmit(cmpForm.value)" class="uk-float-right uk-icon-button" uk-icon="icon: check" title="Save component" uk-tooltip></a>
+      </div>
+
+    </fieldset>
+  </form>
 </div>

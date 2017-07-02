@@ -1,44 +1,39 @@
 <app-menu></app-menu>
 
 <div class="uk-container">
-  <div class="uk-box-shadow-small uk-box-shadow-hover-medium uk-margin-medium-bottom uk-card-default">
+  <div class="uk-box-shadow-small uk-box-shadow-hover-medium uk-margin-medium-bottom uk-section-default">
     <form class="uk-search uk-search-large uk-width-1-1">
       <span uk-search-icon></span>
       <input class="uk-search-input" type="search" placeholder="Search..." (keyup)="onKey($event)">
     </form>
   </div>
 
-  <div class="uk-overflow-auto uk-box-shadow-medium uk-padding uk-margin-medium-bottom uk-card-default">
-    <table class="uk-table uk-table-hover uk-table-divider uk-margin-remove">
-      <caption>
-        <h2 class="uk-float-left uk-margin-small-left uk-margin-small-bottom">Projects</h2>
-        <div class="uk-float-right uk-margin-small-right uk-margin-small-bottom">
-          <a routerLink="/projects/add" class="uk-icon-button" uk-icon="icon: plus" title="Add" uk-tooltip></a>
+  <div class="uk-margin-remove uk-padding uk-box-shadow-small uk-card-default">
+    <div class="uk-panel">
+      <h2 class="uk-float-left uk-margin-remove uk-margin-small-left">Projects</h2>
+
+      <div class="uk-float-right uk-margin-remove uk-margin-small-right">
+        <a routerLink="/projects/add" class="uk-icon-button" uk-icon="icon: plus" title="Add" uk-tooltip></a>
+      </div>
+    </div>
+
+    <hr>
+
+    <ul uk-accordion>
+      <li *ngIf="Projects.length === 0">No data were found!</li>
+
+      <li *ngFor="let Pro of Projects">
+        <h3 class="uk-accordion-title">{{Pro.Name}}</h3>
+
+        <div class="uk-accordion-content">
+          <p>{{Pro.Note}}</p>
+
+          <div class="uk-float-right uk-margin-remove uk-margin-small-right">
+            <a (click)="deleteProject(Pro.Id)"><span class="uk-label uk-label-danger">Delete</span></a>
+            <a routerLink="/projects/view/{{Pro.Id}}"><span class="uk-label uk-label-success">Edit</span></a>
+          </div>
         </div>
-      </caption>
-
-      <thead>
-      <tr>
-        <th class="uk-table-shrink">Name</th>
-        <th class="uk-table-expand">Note</th>
-        <th class="uk-table-shrink">Options</th>
-      </tr>
-      </thead>
-
-      <tbody>
-      <tr *ngIf="Projects.length === 0">
-        <td colspan="3" class="uk-text-center">No data were found!</td>
-      </tr>
-
-      <tr *ngFor="let Pro of Projects">
-        <td class="uk-text-nowrap uk-text-middle">{{Pro.Name}}</td>
-        <td class="uk-text-truncate uk-text-middle">{{Pro.Note}}</td>
-        <td class="uk-text-nowrap">
-          <a (click)="deleteProject(Pro.Id)" class="uk-icon-button uk-margin-small-right" uk-icon="icon: trash" title="Remove" uk-tooltip></a>
-          <a routerLink="/projects/view/{{Pro.Id}}" class="uk-icon-button" uk-icon="icon: list" title="View" uk-tooltip></a>
-        </td>
-      </tr>
-      </tbody>
-    </table>
+      </li>
+    </ul>
   </div>
 </div>

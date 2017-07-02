@@ -18,7 +18,6 @@ import { ConnectionService } from './connection.service';
 import { LoginService } from './login/login.service';
 import { DistributorService } from './inventory/distributor/distributor.service';
 import { AlertService } from './alert/alert.service';
-import { UserComponent } from './user/user.component';
 import { ManufacturerComponent } from './inventory/manufacturer/manufacturer.component';
 import {ManufacturerService} from './inventory/manufacturer/manufacturer.service';
 import { LocationComponent } from './inventory/location/location.component';
@@ -58,15 +57,16 @@ import { ProductionComponent } from './production/production.component';
 import { AddActivityComponent } from './activity/add-activity/add-activity.component';
 import { ViewActivityComponent } from './activity/view-activity/view-activity.component';
 import { AddNoteComponent } from './note/add-note/add-note.component';
-import { ViewNoteComponent } from './note/view-note/view-note.component';
 import { AddProductionComponent } from './production/add-production/add-production.component';
 import { ViewProductionComponent } from './production/view-production/view-production.component';
 import { AddProjectComponent } from './project/add-project/add-project.component';
-import { ViewProjectComponent } from './project/view-project/view-project.component';
-import {ActivityService} from "./activity/activity.service";
-import {ProductionService} from "./production/production.service";
-import {ProjectService} from "./project/project.service";
-import {LoginGuard} from "./login/login.guard";
+import {ActivityService} from './activity/activity.service';
+import {ProductionService} from './production/production.service';
+import {ProjectService} from './project/project.service';
+import {LoginGuard} from './login/login.guard';
+import { EditProjectComponent } from './project/edit-project/edit-project.component';
+import { EditNoteComponent } from './note/edit-note/edit-note.component';
+import { AccountComponent } from './user/account/account.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +79,6 @@ import {LoginGuard} from "./login/login.guard";
     DashboardComponent,
     LogoutComponent,
     AlertComponent,
-    UserComponent,
     ManufacturerComponent,
     LocationComponent,
     FootprintComponent,
@@ -109,11 +108,12 @@ import {LoginGuard} from "./login/login.guard";
     AddActivityComponent,
     ViewActivityComponent,
     AddNoteComponent,
-    ViewNoteComponent,
     AddProductionComponent,
     ViewProductionComponent,
     AddProjectComponent,
-    ViewProjectComponent,
+    EditProjectComponent,
+    EditNoteComponent,
+    AccountComponent,
   ],
   imports: [
     BrowserModule,
@@ -133,10 +133,8 @@ import {LoginGuard} from "./login/login.guard";
       { path: 'productions/view/:id', component: ViewProductionComponent },
       { path: 'notes', component: NoteComponent },
       { path: 'notes/add', component: AddNoteComponent },
-      { path: 'notes/view/:id', component: ViewNoteComponent },
       { path: 'projects', component: ProjectComponent },
       { path: 'projects/add', component: AddProjectComponent },
-      { path: 'projects/view/:id', component: ViewProjectComponent },
       { path: 'inventory/components', component: ComponentComponent },
       { path: 'inventory/components/add', component: AddComponentComponent },
       { path: 'inventory/components/view/:id', component: ViewComponentComponent },
@@ -159,8 +157,7 @@ import {LoginGuard} from "./login/login.guard";
       { path: 'inventory/category-parameter-types/add', component: AddCategoryParamTypeComponent },
       { path: 'inventory/category-parameter-types/view/:id', component: ViewCategoryParamTypeComponent },
       { path: 'inventory/component-params/add/:id', component: AddComponentParamComponent },
-      { path: 'inventory/component-params/view/:id', component: ViewComponentParamComponent },
-      { path: 'users', component: UserComponent }
+      { path: 'inventory/component-params/view/:id', component: ViewComponentParamComponent }
     ]),
     ChartsModule
   ],

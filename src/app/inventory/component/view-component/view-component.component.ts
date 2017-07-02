@@ -235,14 +235,14 @@ export class ViewComponentComponent implements OnInit {
 
   private getCP() {
     this._cpsSer.GetComponentParams(this.id).subscribe(data => {
-      let cps = data.json();
+      const cps = data.json();
       for (let i = 0; i < cps.length; i++) {
         this.cpsForms[i] = this._formBuilder.group({
           'Id': new FormControl({value: cps[i].Id, disabled: true}),
           'ComponentId': new FormControl({value: cps[i].ComponentId, disabled: true}),
-          'CPT': new FormControl({value: cps[i].CPT, disabled: true}),
+          'CPTName': new FormControl({value: cps[i].CPTName, disabled: true}),
           'Value': new FormControl({value: cps[i].Value, disabled: true}),
-          'Prefix': new FormControl({value: cps[i].Prefix, disabled: true}),
+          'PrefixName': new FormControl({value: cps[i].PrefixName, disabled: true}),
           'Note': new FormControl({value: cps[i].Note, disabled: true})
         });
       }

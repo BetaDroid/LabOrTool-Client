@@ -1,39 +1,37 @@
 <app-menu></app-menu>
 
-<div class="uk-container uk-margin">
-  <div class="uk-padding uk-box-shadow-small">
-    <form #locForm="ngForm">
-      <fieldset class="uk-fieldset">
+<div class="uk-container uk-padding uk-section-default uk-box-shadow-small">
+  <form #locForm="ngForm">
+    <fieldset class="uk-fieldset">
 
-        <legend class="uk-legend">Add new location</legend>
+      <legend class="uk-legend">Add new location</legend>
 
-        <div class="uk-margin">
-          <label class="uk-form-label" for="position">Position</label>
-          <div class="uk-form-controls">
-            <input class="uk-input" id="position" type="text" placeholder="Insert the position" name="Position" ngModel>
-          </div>
+      <div class="uk-margin">
+        <label class="uk-form-label" for="position">Position</label>
+        <div class="uk-form-controls">
+          <input class="uk-input" id="position" type="text" placeholder="Insert the position" name="Position" ngModel>
         </div>
+      </div>
 
-        <div class="uk-margin">
-          <label class="uk-form-label" for="container">Container</label>
-          <div class="uk-form-controls">
-            <input class="uk-input" id="container" type="text" placeholder="Insert the container" name="Container" ngModel>
-          </div>
+      <div class="uk-margin">
+        <label class="uk-form-label" for="container">Container</label>
+        <div class="uk-form-controls">
+          <input class="uk-input" id="container" type="text" placeholder="Insert the container" name="Container" ngModel>
         </div>
+      </div>
 
-        <div class="uk-margin">
-          <label class="uk-form-label" for="subcontainer">Subcontainer</label>
-          <div class="uk-form-controls">
-            <input class="uk-input" id="subcontainer" type="text" placeholder="Insert the subcontainer" name="SubContainer" ngModel>
-          </div>
+      <div class="uk-margin">
+        <label class="uk-form-label" for="subcontainer">Subcontainer</label>
+        <div class="uk-form-controls">
+          <input class="uk-input" id="subcontainer" type="text" placeholder="Insert the subcontainer" name="SubContainer" ngModel>
         </div>
+      </div>
 
-        <div class="uk-margin">
-          <a routerLink="/inventory/locations" class="uk-float-left uk-icon-button" uk-icon="icon: arrow-left" title="Back" uk-tooltip></a>
-          <a (click)="onSubmit(locForm.value)" class="uk-float-right uk-icon-button" uk-icon="icon: plus" title="Add" uk-tooltip></a>
-        </div>
+      <div class="uk-margin">
+        <a routerLink="/inventory/locations" class="uk-float-left uk-icon-button" uk-icon="icon: arrow-left" title="Back" uk-tooltip></a>
+        <a (click)="onSubmit(locForm.value)" class="uk-float-right uk-icon-button" uk-icon="icon: plus" title="Add" uk-tooltip></a>
+      </div>
 
-      </fieldset>
-    </form>
-  </div>
+    </fieldset>
+  </form>
 </div>

@@ -1,3 +1,44 @@
-<p>
-  add-note works!
-</p>
+<app-menu></app-menu>
+
+<div class="uk-container uk-padding uk-section-default uk-box-shadow-small">
+  <form #noteForm="ngForm">
+    <fieldset class="uk-fieldset">
+
+      <legend class="uk-legend">Add new note</legend>
+
+      <div class="uk-margin">
+        <label class="uk-form-label" for="type">Type</label>
+        <div class="uk-form-controls">
+          <select class="uk-select" id="type" name="NoteType" ngModel>
+            <option></option>
+            <option *ngFor="let Type of Types" value="{{Type.Id}}">{{Type.Name}}</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- TODO: improve this part with a search function -->
+      <div class="uk-margin">
+        <label class="uk-form-label" for="parent">Parent</label>
+        <div class="uk-form-controls">
+          <input class="uk-input" id="parent" type="text" placeholder="Insert the parent id" name="ParentId" ngModel>
+        </div>
+      </div>
+
+      <div class="uk-margin">
+        <label class="uk-form-label" for="content">Content</label>
+        <div class="uk-form-controls">
+          <textarea class="uk-textarea uk-resize-vertical" id="content" rows="5" placeholder="Insert the content" name="Body" ngModel></textarea>
+        </div>
+      </div>
+
+      <input class="uk-input" id="creator" type="hidden" name="EmployeeCreationId">
+      <input class="uk-input" id="editor" type="hidden" name="EmployeeModificationId">
+
+      <div class="uk-margin">
+        <a routerLink="/notes" class="uk-float-left uk-icon-button" uk-icon="icon: arrow-left" title="Back" uk-tooltip></a>
+        <a (click)="onSubmit(noteForm.value)" class="uk-float-right uk-icon-button" uk-icon="icon: plus" title="Add" uk-tooltip></a>
+      </div>
+
+    </fieldset>
+  </form>
+</div>
