@@ -45,7 +45,7 @@ export class LoginService {
   }
 
   public getUser = (): any => {
-    return localStorage.getItem('currentUser');
+    return JSON.parse(localStorage.getItem('currentUser'));
   }
 
   public isLoggedIn = (): boolean => {

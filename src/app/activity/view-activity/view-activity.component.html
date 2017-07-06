@@ -1,3 +1,179 @@
-<p>
-  view-activity works!
-</p>
+<app-menu></app-menu>
+
+<div class="uk-container uk-margin">
+  <div class="uk-padding uk-section-default uk-box-shadow-small">
+    <form [formGroup]="actForm"
+          class="uk-grid-medium"
+          uk-grid>
+      <div class="uk-width-1-1">
+        <h3>Information about activity</h3>
+      </div>
+
+      <div class="uk-width-1-5">
+        <label class="uk-form-label"
+               for="id">Id</label>
+        <div class="uk-form-controls">
+          <input class="uk-input"
+                 id="id"
+                 type="text"
+                 [formControl]="actForm.controls['Id']">
+        </div>
+      </div>
+
+      <div class="uk-width-3-5">
+        <label class="uk-form-label"
+               for="title">Title</label>
+        <div class="uk-form-controls">
+          <input class="uk-input"
+                 id="title"
+                 type="text"
+                 placeholder="Insert the title"
+                 name="Title"
+                 [formControl]="actForm.controls['Title']">
+        </div>
+      </div>
+
+      <div class="uk-width-1-5">
+        <label class="uk-form-label"
+               for="type">Type</label>
+        <div class="uk-form-controls">
+          <select class="uk-select"
+                  id="type"
+                  [formControl]="actForm.controls['TypeId']">
+            <option></option>
+            <option *ngFor="let Type of Types"
+                    value="{{Type.Id}}">{{Type.Name}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="uk-width-1-4">
+        <label class="uk-form-label" for="workcode">Work code</label>
+        <div class="uk-form-controls">
+          <input
+            class="uk-input"
+            id="workcode"
+            type="text"
+            placeholder="Insert the work code"
+            name="WorkCode"
+            [formControl]="actForm.controls['WorkCode']">
+        </div>
+      </div>
+
+      <div class="uk-width-1-4">
+        <label class="uk-form-label"
+               for="priority">Priority</label>
+        <div class="uk-form-controls">
+          <select class="uk-select"
+                  id="priority"
+                  [formControl]="actForm.controls['PriorityId']">
+            <option></option>
+            <option *ngFor="let Pri of Priorities"
+                    value="{{Pri.Id}}">{{Pri.Name}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="uk-width-1-4">
+        <label class="uk-form-label"
+               for="deadline">Deadline</label>
+        <div class="uk-form-controls">
+          <input
+            class="uk-input"
+            id="deadline"
+            type="date"
+            placeholder="Select the deadline"
+            name="Deadline"
+            [formControl]="actForm.controls['Deadline']">
+        </div>
+      </div>
+
+      <div class="uk-width-1-4">
+        <label class="uk-form-label"
+               for="status">Status</label>
+        <div class="uk-form-controls">
+          <select class="uk-select"
+                  id="status"
+                  [formControl]="actForm.controls['StatusId']">
+            <option></option>
+            <option *ngFor="let Sta of Statuses"
+                    value="{{Sta.Id}}">{{Sta.Name}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="uk-width-1-4">
+        <label class="uk-form-label"
+               for="employee">Employee</label>
+        <div class="uk-form-controls">
+          <select class="uk-select"
+                  id="employee"
+                  [formControl]="actForm.controls['EmployeeId']">
+            <option></option>
+            <option *ngFor="let Emp of Employees"
+                    value="{{Emp.Id}}">{{Emp.Name}} {{Emp.Surname}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="uk-width-1-1">
+        <label class="uk-form-label" for="description">Description</label>
+        <div class="uk-form-controls">
+          <textarea
+            class="uk-textarea uk-resize-vertical"
+            id="description"
+            rows="5"
+            placeholder="Insert a description"
+            name="Description"
+            [formControl]="actForm.controls['Description']"
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="uk-width-1-1">
+        <label class="uk-form-label"
+               for="editable">Editable</label>
+        <div class="uk-form-controls">
+          <input class="uk-checkbox"
+                 id="editable"
+                 type="checkbox"
+                 name="Editable"
+                 [formControl]="actForm.controls['Editable']">
+        </div>
+      </div>
+
+      <div *ngIf="!editable"
+           class="uk-width-1-1">
+        <a routerLink="/activities"
+           class="uk-float-left uk-icon-button"
+           uk-icon="icon: arrow-left"
+           title="Back"
+           uk-tooltip></a>
+        <a (click)="EnableEdit(actForm.value.Editable)"
+           class="uk-float-right uk-icon-button"
+           uk-icon="icon: file-edit"
+           title="Edit"
+           uk-tooltip></a>
+        <a (click)="deleteActivity(actForm.value.Id)"
+           class="uk-float-right uk-icon-button uk-margin-small-right"
+           uk-icon="icon: trash"
+           title="Delete"
+           uk-tooltip></a>
+      </div>
+
+      <div *ngIf="editable"
+           class="uk-width-1-1">
+        <a (click)="DisableEdit()"
+           class="uk-float-left uk-icon-button"
+           uk-icon="icon: close"
+           title="Cancel"
+           uk-tooltip></a>
+        <a (click)="onSubmit(actForm.value)"
+           class="uk-float-right uk-icon-button"
+           uk-icon="icon: check"
+           title="Save"
+           uk-tooltip></a>
+      </div>
+    </form>
+  </div>
+</div>

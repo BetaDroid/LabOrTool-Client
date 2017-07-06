@@ -1,89 +1,137 @@
 <app-menu></app-menu>
 
-<div class="uk-container uk-padding uk-section-default uk-box-shadow-small">
-  <form #actForm="ngForm" class="uk-grid-medium" uk-grid>
-    <div class="uk-width-1-1">
-      <h3>Add a new activity</h3>
-    </div>
-
-    <div class="uk-width-1-1">
-      <label class="uk-form-label" for="title">Title</label>
-      <div class="uk-form-controls">
-        <input class="uk-input" id="title" type="text" placeholder="Insert the title" name="Title" ngModel>
+<div class="uk-container uk-margin">
+  <div class="uk-padding uk-section-default uk-box-shadow-small">
+    <form #actForm="ngForm"
+          class="uk-grid-medium"
+          uk-grid>
+      <div class="uk-width-1-1">
+        <h3>Add a new activity</h3>
       </div>
-    </div>
 
-    <div class="uk-width-1-4">
-      <label class="uk-form-label" for="type">Type</label>
-      <div class="uk-form-controls">
-        <select class="uk-select" id="type" name="TypeId" ngModel>
-          <option></option>
-          <option *ngFor="let Type of Types" value="{{Type.Id}}">{{Type.Name}}</option>
-        </select>
+      <div class="uk-width-3-4">
+        <label class="uk-form-label"
+               for="title">Title</label>
+        <div class="uk-form-controls">
+          <input class="uk-input"
+                 id="title"
+                 type="text"
+                 placeholder="Insert the title"
+                 name="Title"
+                 ngModel>
+        </div>
       </div>
-    </div>
 
-    <div class="uk-width-3-4">
-      <label class="uk-form-label" for="workcode">Work code</label>
-      <div class="uk-form-controls">
-        <input class="uk-input" id="workcode" type="text" placeholder="Insert the work code" name="WorkCode" ngModel>
+      <div class="uk-width-1-4">
+        <label class="uk-form-label"
+               for="type">Type</label>
+        <div class="uk-form-controls">
+          <select class="uk-select"
+                  id="type"
+                  name="TypeId"
+                  ngModel>
+            <option></option>
+            <option *ngFor="let Type of Types"
+                    value="{{Type.Id}}">{{Type.Name}}</option>
+          </select>
+        </div>
       </div>
-    </div>
 
-    <div class="uk-width-1-4">
-      <label class="uk-form-label" for="priority">Priority</label>
-      <div class="uk-form-controls">
-        <select class="uk-select" id="priority" name="PriorityId" ngModel>
-          <option></option>
-          <option *ngFor="let Pri of Priorities" value="{{Pri.Id}}">{{Pri.Name}}</option>
-        </select>
+      <div class="uk-width-1-4">
+        <label class="uk-form-label uk-text-nowrap"
+               for="workcode">Work code</label>
+        <div class="uk-form-controls">
+          <input class="uk-input"
+                 id="workcode"
+                 type="text"
+                 placeholder="Insert the work code"
+                 name="WorkCode"
+                 ngModel>
+        </div>
       </div>
-    </div>
 
-    <div class="uk-width-1-4">
-      <label class="uk-form-label" for="deadline">Deadline</label>
-      <div class="uk-form-controls">
-        <input class="uk-input" id="deadline" type="date" placeholder="Select the deadline" name="Deadline" ngModel>
+      <div class="uk-width-1-4">
+        <label class="uk-form-label"
+               for="priority">Priority</label>
+        <div class="uk-form-controls">
+          <select class="uk-select"
+                  id="priority"
+                  name="PriorityId"
+                  ngModel>
+            <option></option>
+            <option *ngFor="let Pri of Priorities"
+                    value="{{Pri.Id}}">{{Pri.Name}}</option>
+          </select>
+        </div>
       </div>
-    </div>
 
-    <div class="uk-width-1-4">
-      <label class="uk-form-label" for="status">Status</label>
-      <div class="uk-form-controls">
-        <select class="uk-select" id="status" name="StatusId" ngModel>
-          <option></option>
-          <option *ngFor="let Sta of Statuses" value="{{Sta.Id}}">{{Sta.Name}}</option>
-        </select>
+      <div class="uk-width-1-4">
+        <label class="uk-form-label"
+               for="deadline">Deadline</label>
+        <div class="uk-form-controls">
+          <input class="uk-input"
+                 id="deadline"
+                 type="date"
+                 placeholder="Select the deadline"
+                 name="Deadline"
+                 ngModel>
+        </div>
       </div>
-    </div>
 
-    <div class="uk-width-1-4">
-      <label class="uk-form-label" for="employee">Employee</label>
-      <div class="uk-form-controls">
-        <select class="uk-select" id="employee" name="EmployeeId" ngModel>
-          <option></option>
-          <option *ngFor="let Emp of Employees" value="{{Emp.Id}}">{{Emp.Name}} {{Emp.Surname}}</option>
-        </select>
+      <div class="uk-width-1-4">
+        <label class="uk-form-label"
+               for="status">Status</label>
+        <div class="uk-form-controls">
+          <select class="uk-select"
+                  id="status"
+                  name="StatusId"
+                  ngModel>
+            <option></option>
+            <option *ngFor="let Sta of Statuses"
+                    value="{{Sta.Id}}">{{Sta.Name}}</option>
+          </select>
+        </div>
       </div>
-    </div>
 
-    <div class="uk-width-1-1">
-      <label class="uk-form-label" for="description">Description</label>
-      <div class="uk-form-controls">
-        <textarea class="uk-textarea uk-resize-vertical" id="description" rows="5" placeholder="Insert a description" name="Description" ngModel></textarea>
+      <input class="uk-input" id="employee" type="hidden" name="EmployeeId">
+
+      <div class="uk-width-1-1">
+        <label class="uk-form-label"
+               for="description">Description</label>
+        <div class="uk-form-controls">
+          <textarea class="uk-textarea uk-resize-vertical"
+                    id="description"
+                    rows="5"
+                    placeholder="Insert a description"
+                    name="Description"
+                    ngModel></textarea>
+        </div>
       </div>
-    </div>
 
-    <div class="uk-width-1-1">
-      <label class="uk-form-label" for="editable">Editable</label>
-      <div class="uk-form-controls">
-        <input class="uk-checkbox" id="editable" type="checkbox" name="Editable" checked ngModel>
+      <div class="uk-width-1-1">
+        <label class="uk-form-label"
+               for="editable">Editable</label>
+        <div class="uk-form-controls">
+          <input class="uk-checkbox"
+                 id="editable"
+                 type="checkbox"
+                 name="Editable"
+                 ngModel>
+        </div>
       </div>
-    </div>
 
-    <div class="uk-width-1-1">
-      <a routerLink="/activities" class="uk-float-left uk-icon-button" uk-icon="icon: arrow-left" title="Back" uk-tooltip></a>
-      <a (click)="onSubmit(actForm.value)" class="uk-float-right uk-icon-button" uk-icon="icon: plus" title="Add" uk-tooltip></a>
-    </div>
-  </form>
+      <div class="uk-width-1-1">
+        <a routerLink="/activities"
+           class="uk-float-left uk-icon-button"
+           uk-icon="icon: arrow-left"
+           title="Back"
+           uk-tooltip></a>
+        <a (click)="onSubmit(actForm.value)"
+           class="uk-float-right uk-icon-button"
+           uk-icon="icon: plus"
+           title="Add"
+           uk-tooltip></a>
+      </div>
+    </form>
+  </div>
 </div>
